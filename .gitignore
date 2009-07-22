@@ -1,0 +1,8 @@
+log/*.log
+tmp/**/*
+Capfile
+config/deploy.rb
+*.swp
+config/database.yml
+*.tmproj
+public/system/**/*
