@@ -1,4 +1,3 @@
-@focus
 Feature: User Can Log In
   In order to allow people to use the site
   As a user
@@ -11,4 +10,3 @@ Feature: User Can Log In
     And I fill in "Password" with "secret"
     And I press "Login"
     Then I should see "Login successful!"
-    
