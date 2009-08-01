@@ -1,7 +1,8 @@
-<p>
-  <b>Login:</b>
-  <%=h @user.login %>
-</p>
- 
- 
-<%= link_to 'Edit', edit_account_path %>
+<p><%= link_to "Edit", edit_user_path(@user) %></p>
+
+<p>Name: <%= @user.name %></p>
+<p>Email: <%= @user.email %></p>
+<p>Address: <%= @user.address %></p>
+<p>City: <%= @user.city %></p>
+<p>State: <%= @user.state %></p>
+<p>Zip: <%= @user.zip %></p>

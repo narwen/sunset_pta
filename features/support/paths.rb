@@ -16,6 +16,10 @@ module NavigationHelpers
       
     when /the positions page/
       '/positions'  
+
+    when /my contact info page/
+      user_path(current_user)
+
     # Add more mappings here.
     # Here is a more fancy example:
     #
