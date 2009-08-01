@@ -13,6 +13,9 @@ module NavigationHelpers
     
     when /the login page/
       '/login'
+      
+    when /the positions page/
+      '/positions'  
     # Add more mappings here.
     # Here is a more fancy example:
     #

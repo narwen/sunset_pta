@@ -9,4 +9,5 @@ require File.join(File.dirname(__FILE__), 'boot')
 Rails::Initializer.run do |config|
   config.time_zone = 'UTC'
   config.gem "authlogic"
+  config.gem "be9-acl9", :source => "http://gems.github.com", :lib => "acl9"
 end

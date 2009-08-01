@@ -1,4 +1,3 @@
-@focus
 Feature: User Can Log Out
   In order to use the website
   As a user
