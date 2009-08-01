@@ -8,5 +8,9 @@ Given /^I am logged in as registered user "([^\"]*)"$/ do |email|
 end
 
 Given /^I have the role "([^\"]*)"$/ do |role|
-  @user.has_role? role.to_sym
+  @user.has_role! role.to_sym
+end
+
+Given /^I do not have the role "([^\"]*)"$/ do |role|
+  @user.has_no_role! role.to_sym
 end

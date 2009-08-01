@@ -1,11 +1,4 @@
-<% form_for(@position) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.submit 'Add New Position' %>
-  </p>
-<% end %>
+<% @positions.each do |position| %>
+  <br />
+  <%= position.title %>
+  <% end %>

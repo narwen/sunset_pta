@@ -3,7 +3,7 @@ class PositionsController < ApplicationController
   # GET /positions.xml
   def index
     @positions = Position.all
-    @position = Position.new
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @positions }
@@ -45,8 +45,12 @@ class PositionsController < ApplicationController
     respond_to do |format|
       if @position.save
         flash[:notice] = "Position #{@position.title} Added Successfully"
+        format.html { redirect_to(@position) }
+        format.xml  { render :xml => @position_old, :status => :created, :location => @position_old }        
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @position_old.errors, :status => :unprocessable_entity }        
       end
-      format.html { redirect_to(positions_path) }
     end
   end
 
