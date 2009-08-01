@@ -7,3 +7,4 @@ config/database.yml
 *.tmproj
 public/system/**/*
 db/*.sqlite3
+tmp/webrat-*
