@@ -5,8 +5,9 @@ Feature: User Can Log In
 
   Scenario: Successful Login
     Given I am registered user "harold@example.com" with password "secret"
-    And I am on the login page
-    When I fill in "Email" with "harold@example.com"
+    When I go to the homepage
+    And I follow "Login"
+    And I fill in "Email" with "harold@example.com"
     And I fill in "Password" with "secret"
     And I press "Login"
     Then I should see "Login successful!"
