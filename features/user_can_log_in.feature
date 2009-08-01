@@ -4,7 +4,7 @@ Feature: User Can Log In
   I want to be able to log in
 
   Scenario: Successful Login
-    Given I am registered user "harold@example.com" with password "secret"
+    Given a user "harold@example.com" with password "secret"
     When I go to the homepage
     And I follow "Login"
     And I fill in "Email" with "harold@example.com"

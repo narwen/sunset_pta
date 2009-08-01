@@ -4,7 +4,7 @@ Feature: User Can Log Out
   I want to be able to log out
 
   Scenario: Successful Log Out
-    Given there is no registered user "harold@example.com" with password "secret"
+    Given there is no user "harold@example.com" with password "secret"
     And I am on the login page
     When I fill in "Email" with "harold@example.com"
     And I fill in "Password" with "secret"
