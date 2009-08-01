@@ -4,9 +4,9 @@ Feature: User Can Log In
   I want to be able to log in
 
   Scenario: Successful Login
-    Given I am registered user "Harold" with password "secret"
+    Given I am registered user "harold@example.com" with password "secret"
     And I am on the login page
-    When I fill in "Login" with "Harold"
+    When I fill in "Email" with "harold@example.com"
     And I fill in "Password" with "secret"
     And I press "Login"
     Then I should see "Login successful!"

@@ -1,13 +1,12 @@
-Given /^I am registered user "([^\"]*)" with password "([^\"]*)"$/ do |login, password|
+Given /^I am registered user "([^\"]*)" with password "([^\"]*)"$/ do |email, password|
   params = {
-    "login" => login,
+    "email" => email,
     "password" => password,
-    "password_confirmation" => password,
-    "email" => "anything@something.com"
+    "password_confirmation" => password
   }
   @user = User.create!(params)
 end
 
-Given /^There is no registered user "([^\"]*)" with password "([^\"]*)"$/ do |arg1, arg2|
+Given /^there is no registered user "([^\"]*)" with password "([^\"]*)"$/ do |arg1, arg2|
   # nothing to do here, since don't want a user
 end
