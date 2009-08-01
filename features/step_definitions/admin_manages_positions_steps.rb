@@ -1,9 +1,8 @@
-Given /^I am logged in as registered user "([^\"]*)"$/ do |login|
+Given /^I am logged in as registered user "([^\"]*)"$/ do |email|
   params = {
-    "login" => login,
+    "email" => email,
     "password" => "secret",
-    "password_confirmation" => "secret",
-    "email" => "anything@something.com"
+    "password_confirmation" => "secret"
   }
   @user = User.create!(params)
 end

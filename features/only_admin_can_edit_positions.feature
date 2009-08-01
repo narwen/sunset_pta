@@ -5,7 +5,7 @@ Feature: Only admins can edit positions
   I want to add, edit and delete positions
 
   Scenario: Admin adds a position
-    Given I am logged in as registered user "John"
+    Given I am logged in as registered user "hobart@something.com"
     And I have the role "admin"
     And I am on the positions page
     When I fill in "title" with "Secretary"
