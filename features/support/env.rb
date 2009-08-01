@@ -1,5 +1,5 @@
 # Sets up the Rails environment for Cucumber
-ENV["RAILS_ENV"] ||= "test"
+ENV["RAILS_ENV"] ||= "cucumber"
 require File.expand_path(File.dirname(__FILE__) + '/../../config/environment')
 require 'cucumber/rails/world'
 
@@ -15,6 +15,7 @@ Cucumber::Rails.use_transactional_fixtures
 Cucumber::Rails.bypass_rescue
 
 require 'webrat'
+#require 'cucumber/webrat/table_locator' # Lets you do table.diff!(table_at('#my_table').to_a)
 
 Webrat.configure do |config|
   config.mode = :rails
