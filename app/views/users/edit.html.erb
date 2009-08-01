@@ -1,0 +1,35 @@
+<% form_for @user do |f| -%>
+  <p>
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :email, "Email" %>
+    <%= f.text_field :email %>
+  </p>
+
+  <p>
+    <%= f.label :address, "Address" %>
+    <%= f.text_field :address %>
+  </p>
+
+  <p>
+    <%= f.label :city, "City" %>
+    <%= f.text_field :city %>
+  </p>
+
+  <p>
+    <%= f.label :state, "State" %>
+    <%= f.text_field :state %>
+  </p>
+
+  <p>
+    <%= f.label :zip, "Zip" %>
+    <%= f.text_field :zip %>
+  </p>
+
+  <p>
+    <%= f.submit "Save" %>
+  </p>
+<% end -%>

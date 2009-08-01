@@ -13,6 +13,9 @@ module NavigationHelpers
     
     when /the login page/
       '/login'
+
+    when /my contact info page/
+      user_path(current_user)
     # Add more mappings here.
     # Here is a more fancy example:
     #
