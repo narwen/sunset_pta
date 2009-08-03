@@ -6,6 +6,11 @@ require 'spec/autorun'
 require 'spec/rails'
 require 'factory_girl'
 
+Factory.definition_file_paths = [
+  File.join(RAILS_ROOT, 'spec', 'factories')
+]
+Factory.find_definitions
+
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
