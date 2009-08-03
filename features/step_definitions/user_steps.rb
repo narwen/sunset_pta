@@ -1,4 +1,4 @@
-Given /^a user "([^\"]*)" with password "([^\"]*)"$/ do |email, password|
+Given /^there is a user "([^\"]*)" with password "([^\"]*)"$/ do |email, password|
   Factory(:user,
     :email => email,
     :password => password,
