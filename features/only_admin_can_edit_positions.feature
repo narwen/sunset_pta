@@ -4,7 +4,7 @@ Feature: Admin can edit positions
   I want to add, edit and delete positions
 
   Scenario: Admin adds a position
-    Given I am logged in as "hobart@something.com"
+    Given I am logged in as "bob@example.com"
     And I have the role "admin"
     And I am on the new position page
     When I fill in "title" with "Secretary"
@@ -12,13 +12,13 @@ Feature: Admin can edit positions
     Then I should see "Position Secretary Added Successfully"
 
   Scenario: Non admin cannot add a position
-    Given I am logged in as "hobart@something.com"
+    Given I am logged in as "bob@example.com"
     And I do not have the role "admin"
     And I am on the new position page
-    Then I should not see "Add New Position"
+    Then I should not see "Create"
 
   Scenario: User fails to add existing position
-    Given I am logged in as "bobby@gmail.com"
+    Given I am logged in as "bob@example.com"
     And I have the role "admin"
     And I am on the new position page
     And there exists a position "Secretary"

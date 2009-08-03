@@ -8,6 +8,13 @@
  <meta http-equiv="Content-Style-Type" content="text/css" />
 </head>
 <body>
+  <%- if current_user -%>
+    <p><%= link_to "My contact info", user_path(current_user) %></p>
+    <p><%= link_to 'Logout', logout_path %></p>
+  <%- else -%>
+    <p><%= link_to "Login", login_path %></p>
+  <%- end -%>
+  
   <%- flash.each do |type, message| -%>
     <div class="flash flash_<%= type %>">
       <%= message %>
