@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090801133404) do
+ActiveRecord::Schema.define(:version => 20090806054444) do
 
   create_table "positions", :force => true do |t|
     t.string   "title",      :null => false
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20090801133404) do
     t.string   "city"
     t.string   "state"
     t.string   "zip"
+    t.integer  "position_id"
   end
 
 end

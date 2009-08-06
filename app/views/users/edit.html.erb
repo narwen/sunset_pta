@@ -5,6 +5,11 @@
   </p>
 
   <p>
+    <%= f.label :position_id, "Board position" %>
+    <%= f.collection_select :position_id, Position.all, :id, :title, :include_blank => true %>
+  </p>
+
+  <p>
     <%= f.label :email, "Email" %>
     <%= f.text_field :email %>
   </p>

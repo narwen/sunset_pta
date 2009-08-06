@@ -1,6 +1,9 @@
 <p><%= link_to "Edit", edit_user_path(@user) %></p>
 
 <p>Name: <%= @user.name %></p>
+<%- if @user.position -%>
+  <p>Board position: <%= @user.position.title %></p>
+<%- end -%>
 <p>Email: <%= @user.email %></p>
 <p>Address: <%= @user.address %></p>
 <p>City: <%= @user.city %></p>
