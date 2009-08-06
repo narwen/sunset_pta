@@ -1,3 +1,7 @@
+Given /^there is a user "([^\"]*)"$/ do |email|
+  Factory(:user, :email => email)
+end
+
 Given /^there is a user "([^\"]*)" with password "([^\"]*)"$/ do |email, password|
   Factory(:user,
     :email => email,

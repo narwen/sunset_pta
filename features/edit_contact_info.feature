@@ -17,7 +17,7 @@ Feature: Edit contact info
       | State   | TX                         |
       | Zip     | 78705                      |
     And I press "Save"
-    Then I should see "Contact info updated successfully"
+    Then I should see "User updated successfully"
     And I should see "Bob Bobson"
     And I should see "bobs.new.email@example.com"
     And I should see "3333 Example St"

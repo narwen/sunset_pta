@@ -17,8 +17,11 @@ module NavigationHelpers
     when /the new position page/
       '/positions/new'  
 
-    when /my contact info page/
+    when /my profile page/
       user_path(current_user)
+
+    when /the profile page for "([^\"]*)"/
+      user_path(User.find_by_email($1))
 
     # Add more mappings here.
     # Here is a more fancy example:
