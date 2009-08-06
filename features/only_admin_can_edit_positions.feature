@@ -1,3 +1,4 @@
+@focus
 Feature: Admin can edit positions
   In order to keep a record of who is in which position
   As an administrator
@@ -25,3 +26,14 @@ Feature: Admin can edit positions
     When I fill in "title" with "Secretary"
     And I press "Create"
     Then I should see "taken"
+    
+  # Scenario: Admin deletes a position
+  #   Given I am logged in as "bob@example.com"
+  #   And I have the role "admin"
+  #   And I am on the positions page
+  #   And there is a position "Secretary"
+  #   When I follow "positions/1"
+  #   And I should not see "Secretary"
+  # 
+  # 
+  

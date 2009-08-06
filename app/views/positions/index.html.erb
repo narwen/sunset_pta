@@ -1,4 +1,5 @@
 <% @positions.each do |position| %>
   <br />
   <%= position.title %>
-  <% end %>
+  <%= link_to "Delete", position, :method => :delete %>
+<% end %>

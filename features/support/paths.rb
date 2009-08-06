@@ -16,6 +16,9 @@ module NavigationHelpers
       
     when /the new position page/
       '/positions/new'  
+      
+    when /the positions page/
+      '/positions'
 
     when /my contact info page/
       user_path(current_user)
