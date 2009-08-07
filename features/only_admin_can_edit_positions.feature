@@ -30,7 +30,7 @@ Feature: Admin can edit positions
   Scenario: Admin deletes a position
     Given I am logged in as "bob@example.com"
     And I have the role "admin"
-    And I am on the positions page
     And there is a position "Secretary"
+    And I go to the positions page
     When I follow "Delete Secretary" 
     Then I should not see "Secretary"
