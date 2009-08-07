@@ -1,5 +1,9 @@
-<% @positions.each do |position| %>
-  <br />
-  <%= position.title %>
-  <%= link_to "Delete", position, :method => :delete %>
+<% if @positions.count == 0 %>
+  There are no positions
+<% else %>
+  <% @positions.each do |position| %>
+    <br />
+    <%= position.title %>
+    <%= link_to "Delete #{position.title}", position, :method => :delete %>
+  <% end %>
 <% end %>

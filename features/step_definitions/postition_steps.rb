@@ -1,5 +1,6 @@
 Given /^there is a position "([^\"]*)"$/ do |title|
   Factory(:position, :title => title)
+  save_and_open_page
 end
 
 Given /^"([^\"]*)" has the position "([^\"]*)"$/ do |email, position_title|
