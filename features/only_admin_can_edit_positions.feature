@@ -1,4 +1,4 @@
-
+@focus
 Feature: Admin can edit positions
   In order to keep a record of who is in which position
   As an administrator
