@@ -9,6 +9,6 @@ When /^I save and open page$/ do
 end
 
 Then /^I debug$/ do
-  breakpoint
+  debugger
   0
 end

@@ -1,4 +1,7 @@
 class PositionsController < ApplicationController
+  
+  before_filter :access_denied, :only => ['create', 'destroy']
+  
   def index
     @positions = Position.all
   end
@@ -43,4 +46,11 @@ class PositionsController < ApplicationController
 
     redirect_to(positions_url)
   end
+
+  private
+  
+  def access_denied
+    super unless current_user.has_role? :admin
+  end
+
 end

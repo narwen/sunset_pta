@@ -1,8 +1,14 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user_session, :current_user
+  helper_method :current_user_session, :current_user, :access_denied
   filter_parameter_logging :password, :password_confirmation
 
   private
+
+  def access_denied
+    flash[:notice] = "You do not have permission to do that"
+    redirect_to root_path
+  end
+
   def current_user_session
     return @current_user_session if defined?(@current_user_session)
     @current_user_session = UserSession.find
