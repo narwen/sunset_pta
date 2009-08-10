@@ -24,3 +24,24 @@ Feature: Edit contact info
     And I should see "Example Town"
     And I should see "TX"
     And I should see "78705"
+
+  Scenario Outline: Admins and board members can edit anyone's contact info
+    Given I am logged in as "superuser@example.com"
+    And I have the <role type> "<role title>"
+    And there is a user "bob@example.com"
+    When I go to the profile page for "bob@example.com"
+    And I follow "Edit"
+    And I fill in "Name" with "Bob Bobson"
+    And I press "Save"
+    Then I should see "User updated successfully"
+
+    Examples:
+      | role type | role title |
+      | role      | admin      |
+      | position  | President  |
+
+  Scenario: Normal users cannot edit others' contact info
+    Given I am logged in as "bob@example.com"
+    And there is a user "sally@example.com"
+    When I go to the profile page for "sally@example.com"
+    Then I should not see "Edit"

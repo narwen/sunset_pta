@@ -8,3 +8,7 @@ Given /^"([^\"]*)" has the position "([^\"]*)"$/ do |email, position_title|
   user.position = position
   user.save
 end
+
+Given /^I have the position "([^\"]*)"$/ do |position_title|
+  Given %("#{current_user.email}" has the position "#{position_title}")
+end
