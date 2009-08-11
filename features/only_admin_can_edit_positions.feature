@@ -15,10 +15,8 @@ Feature: Only admin can edit positions
   Scenario: User who is not admin fails to add a position
     Given I am logged in as "bob@example.com"
     And I do not have the role "admin"
-    And I am on the new position page
-    When I fill in "title" with "Secretary"
-    And I press "Create"
-    Then I should see "You do not have permission to do that"
+    And I go to the new position page
+    Then I should see "Permission Denied!"
   
   Scenario: Admin fails to add existing position
     Given I am logged in as "bob@example.com"
@@ -43,5 +41,4 @@ Feature: Only admin can edit positions
     And I do not have the role "admin"
     And there is a position "Secretary"
     And I go to the positions page
-    When I follow "Delete Secretary" 
-    Then I should see "You do not have permission to do that"
+    Then I should see "Permission Denied!"

@@ -33,7 +33,7 @@ each_run = lambda {
 
   # Comment out the next line if you want Rails' own error handling
   # (e.g. rescue_action_in_public / rescue_responses / rescue_from)
-  Cucumber::Rails.bypass_rescue
+  # Cucumber::Rails.bypass_rescue
 }
 
 # conditionally use spork so windoze can still run the features
