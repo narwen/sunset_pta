@@ -2,6 +2,7 @@ class PositionsController < ApplicationController
 
   access_control do  
     allow :admin
+    allow logged_in, :to => :index
   end
 
   def index
@@ -18,6 +19,7 @@ class PositionsController < ApplicationController
 
   def edit
     @position = Position.find(params[:id])
+    flash[:notice] = "Now editing position #{@position.title}"
   end
 
   def create

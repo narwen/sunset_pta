@@ -4,6 +4,9 @@
   <% @positions.each do |position| %>
     <br />
     <%= position.title %>
-    <%= link_to "Delete #{position.title}", position, :method => :delete %>
+    <% if current_user.has_role? :admin %>
+      <%= link_to "Delete #{position.title}", position, :method => :delete %>
+      <%= link_to "Edit #{position.title}", edit_position_path(position) %>
+    <% end %>
   <% end %>
 <% end %>

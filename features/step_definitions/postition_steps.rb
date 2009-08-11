@@ -12,3 +12,7 @@ end
 Given /^I have the position "([^\"]*)"$/ do |position_title|
   Given %("#{current_user.email}" has the position "#{position_title}")
 end
+
+Given /^I see "([^\"]*)"$/ do |text|
+  response.should contain(text)
+end
