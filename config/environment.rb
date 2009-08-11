@@ -7,7 +7,16 @@ RAILS_GEM_VERSION = '2.3.3' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
+  config.active_record.observers = :user_observer
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.raise_delivery_errors = true
   config.time_zone = 'UTC'
+
+  config.gem "ambethia-smtp-tls",
+    :lib     => "smtp-tls",
+    :version => "1.1.2",
+    :source  => "http://gems.github.com"
+
   config.gem "authlogic"
   config.gem "be9-acl9", :source => "http://gems.github.com", :lib => "acl9"
 end
