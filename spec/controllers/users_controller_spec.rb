@@ -6,6 +6,8 @@ describe UsersController, "PUT update" do
   end
 
   before do
+    bypass_rescue
+    
     @mock_current_user = mock_model(User).as_null_object
     controller.stub(:current_user).and_return(@mock_current_user)
     
