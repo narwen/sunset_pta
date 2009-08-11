@@ -8,7 +8,7 @@ Feature: Edit contact info
     And I am on the homepage
     When I follow "My contact info"
     And I follow "Edit"
-    And I fill in the following fields:
+      And I fill in the following fields:
       | field         | value                       |
       | First Name    | Bob                         |
       | Last Name     | Bobson                      |

@@ -32,6 +32,14 @@ ActiveRecord::Schema.define(:version => 20090811171812) do
     t.datetime "updated_at"
   end
 
+  create_table "students", :force => true do |t|
+    t.string  "name"
+    t.string  "grade"
+    t.string  "room"
+    t.string  "teacher"
+    t.integer "parent_id"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email",             :null => false
     t.string   "crypted_password",  :null => false

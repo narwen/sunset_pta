@@ -1,0 +1,36 @@
+<h2>Student info for <%=h current_user.full_name %></h2>
+
+<% form_for [@user, @student] do |f| -%>
+  <p>
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :grade, "Grade" %>
+    <%= f.text_field :grade %>
+  </p>
+
+  <p>
+    <%= f.label :room, "Room" %>
+    <%= f.text_field :room %>
+  </p>
+
+  <p>
+    <%= f.label :teacher, "Teacher" %>
+    <%= f.text_field :teacher %>
+  </p>
+
+  <p>
+    <%= f.submit "Create Student" %>
+  </p>
+<% end -%>
+
+<% @students.each do |student| %>
+  <div>
+    <p>Name: <%=h student.name %></p>
+    <p>Grade: <%=h student.grade %></p>
+    <p>Room: <%=h student.room %></p>
+    <p>Teacher: <%=h student.teacher %></p>
+  </div>
+<% end %>

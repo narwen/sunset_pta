@@ -1,5 +1,4 @@
 require 'rubygems'
-# require 'ruby-debug'
 
 prefork = lambda {
   # Sets up the Rails environment for Cucumber

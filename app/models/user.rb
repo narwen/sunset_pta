@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   acts_as_authorization_subject
 
   belongs_to :position
+  has_many :students, :foreign_key => :parent_id
   
   before_save :update_board_member_role
   after_save :demote_others_from_my_position
