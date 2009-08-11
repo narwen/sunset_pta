@@ -11,3 +11,5 @@
 <p>City: <%= @user.city %></p>
 <p>State: <%= @user.state %></p>
 <p>Zip: <%= @user.zip %></p>
+
+<p><%= link_to "Add Student Info", user_students_path(@user) %></p>
