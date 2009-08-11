@@ -8,6 +8,8 @@
  <meta http-equiv="Content-Style-Type" content="text/css" />
 </head>
 <body>
+  <%= render :partial => 'shared/menu' %>
+  <br />
   <%- if current_user -%>
     <p><%= link_to "My contact info", user_path(current_user) %></p>
     <p><%= link_to 'Logout', logout_path %></p>
@@ -20,14 +22,6 @@
       <%= message %>
     </div>
   <%- end -%>
-<p style="border:2px solid red;width: 200px;padding:5px;">
-  <%= link_to "Home", root_path %>
-  <br /><br />
-  <%= link_to "Positions", positions_path %>
-  <br /><br />
-  <%= link_to "New Position", new_position_path %>
-  </p>
-  <br /><br />
   <%= yield %>
 </body>
 </html>

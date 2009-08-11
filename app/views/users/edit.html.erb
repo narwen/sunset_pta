@@ -1,9 +1,14 @@
 <% form_for @user do |f| -%>
   <p>
-    <%= f.label :name, "Name" %>
-    <%= f.text_field :name %>
+    <%= f.label :first_name, "First Name" %>
+    <%= f.text_field :first_name %>
   </p>
-
+  
+  <p>
+    <%= f.label :last_name, "Last Name" %>
+    <%= f.text_field :last_name %>
+  </p>
+  
   <p>
     <%= f.label :position_id, "Board position" %>
     <%= f.collection_select :position_id, Position.all, :id, :title, :include_blank => true %>

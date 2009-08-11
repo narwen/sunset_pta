@@ -7,6 +7,10 @@ class User < ActiveRecord::Base
   before_save :update_board_member_role
   after_save :demote_others_from_my_position
 
+  def full_name
+    (first_name.blank? ? "" : first_name) + ' ' + (last_name.blank? ? "" : last_name)
+  end
+
   private
   def demote_others_from_my_position
     position.demote_others(self) if position

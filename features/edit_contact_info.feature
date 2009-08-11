@@ -9,13 +9,14 @@ Feature: Edit contact info
     When I follow "My contact info"
     And I follow "Edit"
     And I fill in the following fields:
-      | field   | value                      |
-      | Name    | Bob Bobson                 |
-      | Email   | bobs.new.email@example.com |
-      | Address | 3333 Example St            |
-      | City    | Example Town               |
-      | State   | TX                         |
-      | Zip     | 78705                      |
+      | field         | value                       |
+      | First Name    | Bob                         |
+      | Last Name     | Bobson                      |
+      | Email         | bobs.new.email@example.com  |
+      | Address       | 3333 Example St             |
+      | City          | Example Town                |
+      | State         | TX                          |
+      | Zip           | 78705                       |
     And I press "Save"
     Then I should see "User updated successfully"
     And I should see "Bob Bobson"
@@ -31,7 +32,8 @@ Feature: Edit contact info
     And there is a user "bob@example.com"
     When I go to the profile page for "bob@example.com"
     And I follow "Edit"
-    And I fill in "Name" with "Bob Bobson"
+    And I fill in "first name" with "Bob"
+    And I fill in "last name" with "Bobson"
     And I press "Save"
     Then I should see "User updated successfully"
 

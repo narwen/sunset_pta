@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password, :password_confirmation
 
 rescue_from 'Acl9::AccessDenied', :with => :cannot_do_that
+
   private
 
   def access_denied

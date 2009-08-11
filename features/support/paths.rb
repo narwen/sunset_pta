@@ -26,6 +26,9 @@ module NavigationHelpers
     when /the profile page for "([^\"]*)"/
       user_path(User.find_by_email($1))
 
+    when /the new user page/
+      new_user_path
+
     # Add more mappings here.
     # Here is a more fancy example:
     #
