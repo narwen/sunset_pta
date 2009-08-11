@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     allow logged_in, :if => :same_user?
   end
   
-  access_control :only => :update, &can_edit_user
+  access_control :only => [:update, :edit], &can_edit_user
 
   access_control :helper => :show_edit_link?, :only => :edit, &can_edit_user
 
