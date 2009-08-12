@@ -8,9 +8,12 @@ class StudentsController < ApplicationController
 
   def create
     @student = @user.students.build(params[:student])
-    @student.save
-    flash[:notice] = "Student created successfully!"
-    redirect_to user_students_path(@user)
+    if @student.save
+      flash[:notice] = "Student created successfully!"
+      redirect_to user_students_path(@user)
+    else
+      render :action => "new"
+    end
   end
 
   private

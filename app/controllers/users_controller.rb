@@ -36,7 +36,7 @@ class UsersController < ApplicationController
     
     if @user.save
       flash[:notice] = "New user #{@user.full_name} created."
-      redirect_to(@user)
+      redirect_to user_path(@user)
     else
       render :action => "new"
     end
@@ -44,9 +44,12 @@ class UsersController < ApplicationController
 
   def update
     @user.attributes = params[:user]
-    @user.save
-    flash[:notice] = "User updated successfully."
-    redirect_to user_path(@user)
+    if @user.save
+      flash[:notice] = "User updated successfully."
+      redirect_to user_path(@user)
+    else
+      render :action => "edit"
+    end
   end
   
   private

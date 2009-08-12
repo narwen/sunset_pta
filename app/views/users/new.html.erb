@@ -1,6 +1,7 @@
 Create user
 <br />
 <% form_for @user do |f| %>
+  <%= f.error_messages %>
   <p>
     <%= f.label :first_name %><br />
     <%= f.text_field :first_name %>
