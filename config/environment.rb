@@ -8,8 +8,6 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
   config.active_record.observers = :user_observer
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.raise_delivery_errors = true
   config.time_zone = 'UTC'
 
   config.gem "ambethia-smtp-tls",
