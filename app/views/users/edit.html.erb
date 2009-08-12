@@ -9,11 +9,13 @@
     <%= f.label :last_name, "Last Name" %>
     <%= f.text_field :last_name %>
   </p>
-  
+
+  <%- if can_assign_position? -%>
   <p>
     <%= f.label :position_id, "Board position" %>
     <%= f.collection_select :position_id, Position.all, :id, :title, :include_blank => true %>
   </p>
+  <%- end -%>
 
   <p>
     <%= f.label :email, "Email" %>

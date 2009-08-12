@@ -28,3 +28,9 @@ Feature: Admin assigns executive board positions
     And I should see "President"
     When I go to the profile page for "old.president@example.com"
     Then I should not see "President"
+
+  Scenario: Non-admin can't assign positions
+    Given I am logged in as "bob@example.com"
+    When I go to my profile page
+    And I follow "Edit"
+    Then I should not see "Board position"

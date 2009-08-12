@@ -15,6 +15,10 @@ class UsersController < ApplicationController
     allow logged_in, :if => :same_user?
   end
 
+  access_control :only => [:edit, :update], :helper => :can_assign_position? do
+    allow :admin
+  end
+
   def show
   end
 
@@ -44,6 +48,11 @@ class UsersController < ApplicationController
 
   def update
     @user.attributes = params[:user]
+    
+    unless can_assign_position?
+      @user.position_id = @user.position_id_was
+    end
+    
     if @user.save
       flash[:notice] = "User updated successfully."
       redirect_to user_path(@user)
