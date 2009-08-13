@@ -1,4 +1,4 @@
-<h2>Student info for <%=h current_user.full_name %></h2>
+<h2>Student info for <%=h @user.full_name %></h2>
 
 <% form_for [@user, @student] do |f| -%>
   <%= f.error_messages %>
