@@ -8,6 +8,12 @@ Given /^there are users ((?:"[^\"]*",? ?)+)$/ do |quoted_emails|
   end
 end
 
+Given /^the following users exist:$/ do |table|
+  table.hashes.each do |hash|
+    Factory(:user, hash)
+  end
+end
+
 Given /^there is a user "([^\"]*)" with password "([^\"]*)"$/ do |email, password|
   Factory(:user,
     :email => email,

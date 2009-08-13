@@ -18,7 +18,11 @@ class UsersController < ApplicationController
   access_control :only => [:edit, :update], :helper => :can_assign_position? do
     allow :admin
   end
-
+  
+  def index
+    @users = User.all(:order => 'last_name ASC')
+  end
+  
   def show
   end
 

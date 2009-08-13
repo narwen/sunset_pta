@@ -28,6 +28,9 @@ module NavigationHelpers
 
     when /the new user page/
       new_user_path
+      
+    when /the users page/
+      users_path
 
     # Add more mappings here.
     # Here is a more fancy example:
