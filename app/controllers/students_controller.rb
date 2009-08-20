@@ -5,9 +5,9 @@ class StudentsController < ApplicationController
     @students = @user.students
   end
 
-	def new
-		@student = Student.new
-	end
+  def new
+    @student = Student.new
+  end
 
   def create
     @student = @user.students.build(params[:student])
