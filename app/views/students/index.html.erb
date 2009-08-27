@@ -2,12 +2,21 @@
 
 <%= link_to "Add Student", new_user_student_path(@user) %>
 
-<% @students.each do |student| %>
-  <div>
-    <p>Name: <%=h student.name %></p>
-    <p>Grade: <%=h student.grade %></p>
-    <p>Room: <%=h student.room %></p>
-    <p>Teacher: <%=h student.teacher %></p>
-    <p><%= link_to "Edit", edit_user_student_path(@user, student) %></p>
-  </div>
-<% end %>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Grade</th>
+    <th>Room</th>
+    <th>Teacher</th>
+  </tr>
+  <% @students.each do |student| %>
+    <tr id="<%= dom_id(student) %>">
+      <td><%=h student.name %></td>
+      <td><%=h student.grade %></td>
+      <td><%=h student.room %></td>
+      <td><%=h student.teacher %></td>
+      <td><%= link_to "Edit", edit_user_student_path(@user, student) %></td>
+      <td><%= link_to "Delete", user_student_path(@user, student), :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
