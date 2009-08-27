@@ -34,6 +34,12 @@ class StudentsController < ApplicationController
     end
   end
 
+  def destroy
+    @student = @user.students.find(params[:id])
+    @student.destroy
+    redirect_to(user_students_url(@user))
+  end
+
   private
   def fetch_user
     @user = User.find(params[:user_id])
