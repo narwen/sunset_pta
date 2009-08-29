@@ -10,3 +10,4 @@ db/*.sqlite3
 tmp/webrat-*
 *.eprj
 webrat-*
+design/mockups/*.png
