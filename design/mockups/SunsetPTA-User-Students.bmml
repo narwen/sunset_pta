@@ -67,7 +67,7 @@
     </control>
     <control controlID="59" controlTypeID="com.balsamiq.mockups::Image" x="121" y="75" w="-1" h="-1" measuredW="219" measuredH="91" zOrder="9" locked="false" isInGroup="-1">
       <controlProperties>
-        <src>../../My%20Dropbox/Balsamiq-Mockups/SunsetPTA-Logo.gif</src>
+        <src>./SunsetPTA-Logo.gif</src>
       </controlProperties>
     </control>
     <control controlID="28" controlTypeID="com.balsamiq.mockups::Label" x="806" y="168" w="-1" h="-1" measuredW="51" measuredH="25" zOrder="6" locked="false" isInGroup="-1">

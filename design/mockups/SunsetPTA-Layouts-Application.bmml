@@ -5,23 +5,33 @@
         <text>Sunset%20PTA%0Ahttp%3A//www.sunsetpta.org/</text>
       </controlProperties>
     </control>
-    <control controlID="2" controlTypeID="com.balsamiq.mockups::Label" x="2840" y="68" w="-4294964449" h="1058" measuredW="71" measuredH="25" zOrder="2" locked="false" isInGroup="-1">
+    <control controlID="65" controlTypeID="com.balsamiq.mockups::Label" x="783" y="166" w="15" h="25" measuredW="10" measuredH="25" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%7C</text>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::Label" x="2840" y="68" w="-4294964449" h="1058" measuredW="69" measuredH="25" zOrder="2" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Some%20text</text>
       </controlProperties>
     </control>
-    <control controlID="27" controlTypeID="com.balsamiq.mockups::Label" x="261" y="168" w="-1" h="-1" measuredW="59" measuredH="25" zOrder="5" locked="false" isInGroup="-1">
+    <control controlID="27" controlTypeID="com.balsamiq.mockups::Label" x="734" y="166" w="-1" h="-1" measuredW="41" measuredH="25" zOrder="5" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Positions</text>
+        <text>Admin</text>
         <underline>true</underline>
         <color>33023</color>
       </controlProperties>
     </control>
-    <control controlID="29" controlTypeID="com.balsamiq.mockups::Label" x="720" y="168" w="-1" h="-1" measuredW="76" measuredH="25" zOrder="7" locked="false" isInGroup="-1">
+    <control controlID="29" controlTypeID="com.balsamiq.mockups::Label" x="628" y="166" w="-1" h="-1" measuredW="75" measuredH="25" zOrder="7" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Bob%20Bobson</text>
         <underline>true</underline>
         <color>33023</color>
+      </controlProperties>
+    </control>
+    <control controlID="66" controlTypeID="com.balsamiq.mockups::Label" x="711" y="166" w="15" h="25" measuredW="10" measuredH="25" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%7C</text>
       </controlProperties>
     </control>
     <control controlID="47" controlTypeID="com.balsamiq.mockups::Canvas" x="120" y="193" w="738" h="382" measuredW="100" measuredH="70" zOrder="8" locked="false" isInGroup="-1">
@@ -36,14 +46,14 @@
         <color>2848996</color>
       </controlProperties>
     </control>
-    <control controlID="25" controlTypeID="com.balsamiq.mockups::Label" x="120" y="168" w="-1" h="-1" measuredW="40" measuredH="25" zOrder="3" locked="false" isInGroup="-1">
+    <control controlID="25" controlTypeID="com.balsamiq.mockups::Label" x="120" y="168" w="-1" h="-1" measuredW="38" measuredH="25" zOrder="3" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Home</text>
         <underline>true</underline>
         <color>33023</color>
       </controlProperties>
     </control>
-    <control controlID="26" controlTypeID="com.balsamiq.mockups::Label" x="175" y="168" w="-1" h="-1" measuredW="71" measuredH="25" zOrder="4" locked="false" isInGroup="-1">
+    <control controlID="26" controlTypeID="com.balsamiq.mockups::Label" x="175" y="168" w="-1" h="-1" measuredW="70" measuredH="25" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Volunteers</text>
         <underline>true</underline>
@@ -55,7 +65,7 @@
         <src>./SunsetPTA-Logo.gif</src>
       </controlProperties>
     </control>
-    <control controlID="28" controlTypeID="com.balsamiq.mockups::Label" x="806" y="168" w="-1" h="-1" measuredW="52" measuredH="25" zOrder="6" locked="false" isInGroup="-1">
+    <control controlID="28" controlTypeID="com.balsamiq.mockups::Label" x="806" y="166" w="-1" h="-1" measuredW="51" measuredH="25" zOrder="6" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Log%20out</text>
         <underline>true</underline>
@@ -68,7 +78,7 @@
         <align>center</align>
       </controlProperties>
     </control>
-    <control controlID="62" controlTypeID="com.balsamiq.mockups::Label" x="353" y="100" w="497" h="47" measuredW="855" measuredH="25" zOrder="11" locked="false" isInGroup="-1">
+    <control controlID="62" controlTypeID="com.balsamiq.mockups::Label" x="353" y="100" w="497" h="47" measuredW="844" measuredH="25" zOrder="11" locked="false" isInGroup="-1">
       <controlProperties>
         <text>The%20Parent%20Teacher%20Association%20would%20like%20to%20extend%20a%20warm%20welcome%20to%20all%20new%20and%20returning%20Families%20at%20Sunset%20Elementary%20School.</text>
         <color>15790322</color>
