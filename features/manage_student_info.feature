@@ -69,14 +69,11 @@ Feature: Manage student info
   Scenario: Delete a student
     Given I am logged in as "bob@example.com"
     And I am the parent of student "Student #1"
-    And I am the parent of student "Student #2"
-    And I am the parent of student "Student #3"
     
     When I go to my profile page
     And I follow "View Students"
-    And I click "Delete" for "Student #2"
+    And I follow "Delete"
     
-    Then I should see "Student #1"
-    And I should not see "Student #2"
-    And I should see "Student #3"
+    Then I should not see "Student #1"
+    And I should see "Student deleted successfully!"
     

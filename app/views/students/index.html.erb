@@ -10,7 +10,7 @@
     <th>Teacher</th>
   </tr>
   <% @students.each do |student| %>
-    <tr id="<%= dom_id(student) %>">
+    <tr>
       <td><%=h student.name %></td>
       <td><%=h student.grade %></td>
       <td><%=h student.room %></td>
