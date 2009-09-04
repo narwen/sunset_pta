@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :board_members
+
   map.resources :positions
 
   map.root :controller => 'home'

@@ -6,9 +6,9 @@ Feature: Browse all volunteers
   Scenario: Authenticated user browses volunteer list
     Given the following users exist:
       | first_name | last_name | email             | position_title |
-      | Bob        | Bobson    | bob@example.com   |               |
-      | Sally      | Sallyson  | sally@example.com | President     |
-      | Frank      | Frankson  | frank@example.com | Secretary     |
+      | Bob        | Bobson    | bob@example.com   |                |
+      | Sally      | Sallyson  | sally@example.com | President      |
+      | Frank      | Frankson  | frank@example.com | Secretary      |
     And I am on the homepage
     When I follow "Volunteers"
     Then I should see "Bob Bobson"
