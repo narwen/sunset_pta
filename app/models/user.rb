@@ -8,6 +8,9 @@ class User < ActiveRecord::Base
   before_save :update_board_member_role
   after_save :demote_others_from_my_position
 
+  has_many :committee_memberships
+  has_many :committees, :through => :committee_memberships
+
   def full_name
     (first_name.blank? ? "" : first_name) + ' ' + (last_name.blank? ? "" : last_name)
   end
