@@ -65,7 +65,7 @@ class UsersController < ApplicationController
     end
   end
   
-  private
+  protected
   def fetch_user
     @user = User.find(params[:id])
   end
