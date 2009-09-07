@@ -11,3 +11,4 @@ tmp/webrat-*
 *.eprj
 webrat-*
 design/mockups/*.png
+features/support/local_env.rb
