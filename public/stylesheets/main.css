@@ -1,0 +1,211 @@
+/********************************************************************** Basic */
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  background-color: #FFFFFF;
+  font-size: 12px;
+  font-family: Georgia, Helvetica, Arial, sans-serif;
+}
+
+/********************************************************************* Layout */
+
+div#outer {
+  width: 800px;
+  background-color: #DDDDDD;
+  margin-top: 0px;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0px;
+  position: relative;
+  height: auto !important;
+  min-height: 100%;
+}
+
+/* Header container */
+
+div#header {
+  padding: 0px;
+  width: 800px;
+  height: 91px;
+  background-color: #0000CC;
+}
+
+div#headerleft {
+  background: url(/images/SunsetPTA-Logo.gif);
+  padding: 0px;
+  width: 219px;
+  height: 91px;
+  float: left;
+}
+
+div#headerright {
+  padding-top: 24px;
+  height: 91px;
+  margin-left: 229px;
+}
+
+div#header h3 {
+  color: #FFFFFF;
+}
+
+/* Navigation / Menu container */
+
+div#nav {
+  background-color: #EEEEEE;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+div#nav ul {
+  margin: 0;
+  margin-top: 2px;
+  margin-bottom: 8px;
+  padding: 0px 0px 2px 0px;
+  list-style-type: none;
+  list-style-image: none;
+}
+
+div#nav li {
+  display: inline;
+}
+
+div#nav ul li a {
+  text-decoration: none;
+  padding: 4px 4px 4px 4px;
+  margin-left: 4px;
+  color: #3333FF;
+}
+
+div#nav ul li a:hover {
+  background-color: #000000;
+  color: #fcdb44;
+}
+
+/* Main content */
+
+div#main {
+  padding: 6px;
+  background-color: #DDDDDD;
+}
+
+div#spacer {
+  padding-top: 100px;
+}
+
+/* Footer */
+
+div#footer {
+  width: 800px;
+  color: #FFFFFF;
+  background-color: #0000CC;
+  text-align: center;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  position: absolute;
+  bottom: 0;
+}
+
+/********************************************************************** Links */
+a {
+  text-decoration: none;
+  padding: 2px 2px 2px 2px;
+  color: #3333FF;
+}
+
+a:hover {
+  background-color: #000000;
+  color: #fcdb44;
+}
+
+.cancel-link a {
+  color: red;
+}
+
+.cancel-link a:hover {
+  color: red;
+  background-color: yellow;
+}
+
+/********************************** Headers and Paragraphs and Various blocks */
+
+h1, h2, h3, h4, h5, h5, h6 {
+ margin-bottom: 8px; 
+}
+
+ul, ol{
+  margin-bottom: 8px;
+}
+
+/********************************************************************** Flash */
+
+.flash_notice {
+  border-style: solid;
+  border-width: 2px;
+  font-weight: bold;
+  padding: 6px;
+  border-color: #33CC33;
+  color: #FFFFFF;
+  background-color: #003300;
+  margin-bottom: 8px;
+}
+
+/******************************************************** Taken from scaffold */
+
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  margin-left: 10px;
+  font-size: 12px;
+  list-style: square;
+}
