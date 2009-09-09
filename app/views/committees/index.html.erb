@@ -1,0 +1,23 @@
+<h2>Committees</h2>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+
+<% @committees.each do |committee| %>
+  <tr>
+    <td><%=h committee.name %></td>
+  <% if can_edit_committees? %>
+    <td><%= link_to 'Edit', edit_committee_path(committee) %></td>
+    <td><%= link_to 'Delete', committee, :confirm => 'Are you sure?', :method => :delete %></td>
+  <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<% if can_edit_committees? %>
+<%= link_to 'New committee', new_committee_path %>
+<% end %>

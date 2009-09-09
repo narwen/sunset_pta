@@ -9,7 +9,31 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20090909125802) do
+=======
+ActiveRecord::Schema.define(:version => 20090903233009) do
+
+  create_table "assignments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "committee_id"
+    t.integer  "duty_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "committees", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "duties", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+>>>>>>> c9de65dc8c2792b72391049f52cd164e100c1bcd
 
   create_table "positions", :force => true do |t|
     t.string   "title",      :null => false
