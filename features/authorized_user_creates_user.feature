@@ -1,4 +1,3 @@
-@focus  
 Feature: Authorized user can create a volunteer
   In order to track volunteers
   As an authorized user
