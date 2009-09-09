@@ -1,0 +1,28 @@
+<h2>Committee assignments for <%=h @user.full_name %></h2>
+
+<% if can_edit_assignments? %>
+<%= link_to 'Add Committee Assignment', new_user_assignment_path(@user) %>
+<% end %>
+
+<p></p>
+
+<table>
+  <tr>
+    <th>Committee</th>
+    <th>Duty</th>
+  </tr>
+
+<% @assignments.each do |assignment| %>
+  <tr>
+    <td><%=h Committee.find(assignment.committee_id).name %></td>
+    <td><%=h Duty.find(assignment.duty_id).name %></td>
+  <% if can_edit_assignments? %>
+    <td><%= link_to 'Edit', edit_user_assignment_path(@user, assignment) %></td>
+    <td><%= link_to 'Delete', user_assignment_path(@user, assignment), :confirm => 'Are you sure?', :method => :delete %></td>
+  <% end %>
+  </tr>
+<% end %>
+</table>
+
+
+

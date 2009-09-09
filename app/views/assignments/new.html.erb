@@ -1,0 +1,19 @@
+<h1>New assignment for <%=h @user.full_name %></h1>
+
+<% form_for([@user, @assignment]) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :committee_id %><br />
+    <%= f.select :committee_id, Committee.all.collect { |c| [c.name, c.id] } %>
+  </p>
+  <p>
+    <%= f.label :duty_id %><br />
+    <%= f.select :duty_id, Duty.all.collect { |d| [d.name, d.id] } %>
+  </p>
+  <p>
+    <%= f.submit 'Create Committee Assignment' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back to Committee Assignments', user_assignments_path(@user) %>
