@@ -1,6 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
 
   map.resources :committees
+  map.resources :board_members
 
   map.resources :positions
 

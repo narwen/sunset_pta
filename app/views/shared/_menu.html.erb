@@ -1,13 +1,9 @@
-<p style="border:2px solid red;width: 200px;padding:5px;">
-  <%= link_to "Home", root_path %>
-  <br /><br />
-  <%= link_to "Volunteers", users_path %>
-  <br /><br />
-  <%= link_to "Positions", positions_path %>
-   <br /><br />
-  <%= link_to "Committees", committees_path %>
-  <br /><br />
-  <%= link_to "New Position", new_position_path %>
-  <br /><br />
-  <%= link_to "New User", new_user_path %>
-</p>
+<ul>
+  <li><%= link_to "Home", root_path %></li>
+  <li><%= link_to "Volunteers", users_path %></li>
+  <li><%= link_to "Positions", positions_path %></li>
+  <li><%= link_to "Board Members", board_members_path %></li>
+  <li><%= link_to "Committees", committees_path %></li>
+  <li><%= link_to "New Position", new_position_path %></li>
+  <li><%= link_to "New User", new_user_path %></li>
+</ul>

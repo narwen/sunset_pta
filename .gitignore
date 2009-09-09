@@ -9,3 +9,6 @@ public/system/**/*
 db/*.sqlite3
 tmp/webrat-*
 *.eprj
+webrat-*
+design/mockups/*.png
+features/support/local_env.rb

@@ -1,29 +1,30 @@
-Feature: Authorized user can create a user
-  In order to make the site useful
-  As an authorized user (an admin or a board_member)
-  I want to add new users to the system
-  
-  Scenario: Admin creates a user
+@focus  
+Feature: Authorized user can create a volunteer
+  In order to track volunteers
+  As an authorized user
+  I want to add volunteers to the system
+
+  Scenario: Admin creates a volunteer
     Given I am logged in as "bob@example.com"
     And I have the role "admin"
     And I am on the new user page
-    When I fill in "first name" with "Arthur"
-    And I fill in "last name" with "Jones"
-    And I fill in "email" with "arthur.jones@gmail.com"
+    When I fill in "first name" with "Rebecca"
+    And I fill in "last name" with "Wong"
+    And I fill in "email" with "becky@gmail.com"
     And I press "Create User"
-    Then I should see "New user Arthur Jones created."
+    Then I should see "New user Rebecca Wong created."
 
-  Scenario: Board Member creates a user
+  Scenario: Board Member creates a volunteer
     Given I am logged in as "bob@example.com"
     And I have the role "board_member"
     And I am on the new user page
-    When I fill in "first name" with "Arthur"
-    And I fill in "last name" with "Jones"
-    And I fill in "email" with "arthur.jones@gmail.com"
+    When I fill in "first name" with "Rebecca"
+    And I fill in "last name" with "Wong"
+    And I fill in "email" with "becky@gmail.com"
     And I press "Create User"
-    Then I should see "New user Arthur Jones created."
-
-  Scenario: Non admin fails to create a user
+    Then I should see "New user Rebecca Wong created."
+  
+  Scenario: Non authorized user fails to create a volunteer
     Given I am logged in as "bob@example.com"
     And I do not have the role "admin"
     And I do not have the role "board_member"

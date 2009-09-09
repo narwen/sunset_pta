@@ -18,3 +18,4 @@ Rails::Initializer.run do |config|
   config.gem "authlogic"
   config.gem "be9-acl9", :source => "http://gems.github.com", :lib => "acl9"
 end
+

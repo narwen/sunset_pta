@@ -5,23 +5,40 @@
 <head>
   <title>Sunset PTA</title>
   <meta http-equiv="content-type" content="text/html;charset=utf-8" />
- <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <%= stylesheet_link_tag "main", :media => "all" %>
 </head>
 <body>
-  <%= render :partial => 'shared/menu' %>
-  <br />
-  <%- if current_user -%>
-    <p><%= link_to "My contact info", user_path(current_user) %></p>
-    <p><%= link_to 'Logout', logout_path %></p>
-  <%- else -%>
-    <p><%= link_to "Login", login_path %></p>
-  <%- end -%>
-  
-  <%- flash.each do |type, message| -%>
-    <div class="flash flash_<%= type %>">
-      <%= message %>
+  <div id="outer">
+    
+    <!-- HEADER -->
+    <div id="header">
+      <div id="headerleft"></div>
+      <div id="headerright">
+        <h3>The Parent Teacher Association would like to extend a warm welcome 
+          to all new  and returning Families at Sunset Elementary School.</h3>
+      </div>
     </div>
-  <%- end -%>
-  <%= yield %>
+    
+    <!-- NAVIGATION/MENU -->
+    <div id="nav">
+      <%= render :partial => 'shared/login_panel' %>
+      <%= render :partial => 'shared/menu' %>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main">
+      <%= render :partial => 'shared/flash', :locals => { :flash => flash } %>
+      <%= yield %>
+    </div>
+    
+    <div id="spacer"></div>
+    
+    <!-- FOOTER  -->
+    <div id="footer">
+      <p>&mdash; various links and other messages &mdash;</p>
+    </div>
+    
+  </div>
 </body>
 </html>

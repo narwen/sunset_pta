@@ -10,7 +10,12 @@ end
 
 Given /^the following users exist:$/ do |table|
   table.hashes.each do |hash|
-    Factory(:user, hash)
+    if position_title = hash['position_title']
+      position = Factory(:position, :title => position_title)
+      hash = hash.merge(:position_id => position.id)
+    end
+
+    Factory(:user, hash.reject { |k,v| k.to_s == 'position_title' })
   end
 end
 

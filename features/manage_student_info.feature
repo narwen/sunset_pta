@@ -65,3 +65,15 @@ Feature: Manage student info
     And I should see "5-Updated"
     And I should see "303-Updated"
     And I should see "Joe Joeson-Updated"
+
+  Scenario: Delete a student
+    Given I am logged in as "bob@example.com"
+    And I am the parent of student "Student #1"
+    
+    When I go to my profile page
+    And I follow "View Students"
+    And I follow "Delete"
+    
+    Then I should not see "Student #1"
+    And I should see "Student deleted successfully!"
+    

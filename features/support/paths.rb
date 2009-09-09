@@ -10,6 +10,8 @@ module NavigationHelpers
     
     when /the homepage/
       '/'
+    when /the board members list page/
+      board_members_path
     
     when /the login page/
       '/login'
