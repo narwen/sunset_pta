@@ -4,6 +4,7 @@ class UsersChangeRequiredFields < ActiveRecord::Migration
       u.first_name.nil? && u.first_name = "first_name#{i}"
       u.last_name.nil? && u.last_name = "last_name#{i}"
       u.address.nil? && u.address = "address#{i}"      
+      u.save
     end
     
     change_column :users, :email, :string
