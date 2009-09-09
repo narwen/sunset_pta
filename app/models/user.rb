@@ -1,6 +1,14 @@
 class User < ActiveRecord::Base
-  acts_as_authentic
+
+
+  acts_as_authentic do |c|
+    c.validate_email_field = false
+    c.validate_password_field = false
+  end
+  
   acts_as_authorization_subject
+
+  validates_presence_of :first_name, :last_name, :address, :cell_phone, :home_phone  
 
   belongs_to :position
   has_many :students, :foreign_key => :parent_id
@@ -12,7 +20,7 @@ class User < ActiveRecord::Base
   has_many :committees, :through => :committee_memberships
 
   def full_name
-    (first_name.blank? ? "" : first_name) + ' ' + (last_name.blank? ? "" : last_name)
+    first_name + ' ' + last_name
   end
 
   private

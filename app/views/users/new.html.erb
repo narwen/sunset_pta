@@ -10,28 +10,25 @@ Create user
     <%= f.label :last_name %><br />
     <%= f.text_field :last_name %>
   </p>
+
   <p>
-    <%= f.label :email %><br />
+    <%= f.label :email, "Email" %>
     <%= f.text_field :email %>
   </p>
+
   <p>
-    <%= f.label :address %><br />
+    <%= f.label :address, "Address" %>
     <%= f.text_field :address %>
   </p>
 
   <p>
-    <%= f.label :city %><br />
-    <%= f.text_field :city %>
+    <%= f.label :home_phone, "Home Phone" %>
+    <%= f.text_field :home_phone %>
   </p>
 
   <p>
-    <%= f.label :state %><br />
-    <%= f.text_field :state %>
-  </p>
-
-  <p>
-    <%= f.label :zip %><br />
-    <%= f.text_field :zip %>
+    <%= f.label :cell_phone, "Cell Phone" %>
+    <%= f.text_field :cell_phone %>
   </p>
   <p>
     <%= f.submit 'Create User' %>

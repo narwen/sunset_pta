@@ -10,6 +10,7 @@ Feature: Authorized user can create a volunteer
     And I am on the new user page
     When I fill in "first name" with "Rebecca"
     And I fill in "last name" with "Wong"
+    And I fill in "address" with "111 Fake St."
     And I fill in "email" with "becky@gmail.com"
     And I press "Create User"
     Then I should see "New user Rebecca Wong created."
@@ -20,6 +21,7 @@ Feature: Authorized user can create a volunteer
     And I am on the new user page
     When I fill in "first name" with "Rebecca"
     And I fill in "last name" with "Wong"
+    And I fill in "address" with "111 Fake St."    
     And I fill in "email" with "becky@gmail.com"
     And I press "Create User"
     Then I should see "New user Rebecca Wong created."

@@ -35,13 +35,7 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(params[:user])
-    
-    # this is needed, since password is required, and no password is entered when someone creates the user
-    # obviously, this isn't what was intended...
-    if @user.password.blank? || @user.password_confirmation.blank?
-      @user.password = @user.password_confirmation = "secret"
-    end
-    
+        
     if @user.save
       flash[:notice] = "New user #{@user.full_name} created."
       redirect_to user_path(@user)
