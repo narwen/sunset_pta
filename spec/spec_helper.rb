@@ -26,7 +26,13 @@ Spec::Runner.configure do |config|
   config.fixture_path = RAILS_ROOT + '/spec/fixtures/'
   
   config.include Webrat::Matchers, :type => :views
-  
+
+  config.before(:suite) {
+
+    Factory(:duty, :name => "Chair")
+    Factory(:duty, :name => "Volunteer")
+  }
+
   # == Fixtures
   #
   # You can declare fixtures for each example_group like this:

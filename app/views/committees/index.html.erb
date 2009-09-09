@@ -1,4 +1,4 @@
-<h1>Listing committees</h1>
+<h2>Committees</h2>
 
 <table>
   <tr>
@@ -8,13 +8,16 @@
 <% @committees.each do |committee| %>
   <tr>
     <td><%=h committee.name %></td>
-    <td><%= link_to 'Show', committee %></td>
+  <% if can_edit_committees? %>
     <td><%= link_to 'Edit', edit_committee_path(committee) %></td>
-    <td><%= link_to 'Destroy', committee, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Delete', committee, :confirm => 'Are you sure?', :method => :delete %></td>
+  <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
 
+<% if can_edit_committees? %>
 <%= link_to 'New committee', new_committee_path %>
+<% end %>

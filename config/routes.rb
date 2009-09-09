@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+
   map.resources :committees
 
   map.resources :positions
@@ -8,6 +9,6 @@ ActionController::Routing::Routes.draw do |map|
   map.logout 'logout', :controller => "user_sessions", :action => "destroy"
   map.resource :account, :controller => "users"
 
-  map.resources :users, :has_many => :students
+  map.resources :users, :has_many => [:students, :assignments]
   map.resource :user_session
 end

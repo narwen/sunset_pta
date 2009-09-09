@@ -32,6 +32,12 @@ module NavigationHelpers
     when /the users page/
       users_path
 
+    when /the new user assignment page for "([^\"]*)"/
+      new_user_assignment_path(User.find_by_email($1))
+
+    when /the new committee page/
+      new_committee_path
+
     # Add more mappings here.
     # Here is a more fancy example:
     #
