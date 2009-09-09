@@ -1,4 +1,4 @@
-<h2>Editing assignment for <%=h @user.full_name %></h2>
+<h2>Editing committee assignment for <%=h @user.full_name %></h2>
 
 <% form_for([@user, @assignment]) do |f| %>
   <%= f.error_messages %>
@@ -12,7 +12,7 @@
   <%= f.select :duty_id, Duty.all.collect { |d| [ d.name, d.id]} %>
   </p>
   <p>
-    <%= f.submit 'Update' %>
+    <%= f.submit 'Update committee assignment' %>
   </p>
 <% end %>
 

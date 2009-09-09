@@ -10,7 +10,7 @@ Feature: Only admins can add/delete committees
     And I follow "New committee"
     And I fill in "Name" with "Publicity"
     And I press "Create"
-    Then I should see "Committee was successfully created"
+    Then I should see "Committee was successfully created."
     And I should see "Publicity"
 
   Scenario: Non admin fails to add a committee
@@ -25,7 +25,7 @@ Feature: Only admins can add/delete committees
     And there is a committee "Publicity"
     When I follow "Committees"
     Then I should see /Publicity[\s,A-z,a-z]+Delete/
-    And I follow "Delete"
+    When I follow "Delete"
     Then I should not see "Publicity"
     
   Scenario: Non admin fails to delete a committee
@@ -35,6 +35,26 @@ Feature: Only admins can add/delete committees
     When I follow "Committees"
     Then I should see "Publicity"
     And I should not see /Publicity[\s,A-z,a-z]+Delete/
+
+  Scenario: Admin can edit a committee
+    Given I am logged in as "admin@sunset-pta.com"
+    And I have the role "admin"
+    And there is a committee "Springg Festval"
+    When I follow "Committees"
+    Then I should see /Springg Festval[\s,A-z,a-z]+Edit[\s,A-z,a-z]+/
+    When I follow "Edit"
+    And I fill in "name" with "Spring Festival"
+    And I press "Update"
+    Then I should see "Committee was successfully updated."
+    And I should see "Spring Festival"
+
+  Scenario: Non admin fails to edit a committee
+    Given I am logged in as "admin@sunset-pta.com"
+    And I do not have the role "admin"
+    And there is a committee "Springg Festval"
+    When I follow "Committees"
+    Then I should see "Springg Festval"
+    And I should not see /Springg Festval[\s,A-z,a-z]+Edit[\s,A-z,a-z]+/
 
   Scenario: Deleting a committee deletes its assignments
     Given I am logged in as "admin@sunset-pta.com"

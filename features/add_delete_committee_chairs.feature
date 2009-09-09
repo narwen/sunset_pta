@@ -47,7 +47,7 @@ Scenario: Board member can add a committee chair, which updates corresponding pe
     When I go to the new user page
     Then I should not see "Permission Denied!"
 
- Scenario: Non admin, non board member fails to add a committee chair
+Scenario: Non admin, non board member fails to add a committee chair
     Given I am logged in as "rupak@sunset-pta.com"
     And I do not have the role "admin"
     And I do not have the role "board_member"
@@ -94,7 +94,7 @@ Scenario: Board member can delete a committee chair, which updates corresponding
     When I go to the new user page
     Then I should see "Permission Denied!"
 
- Scenario: Non admin, non board member fails to delete a committee chair
+Scenario: Non admin, non board member fails to delete a committee chair
     Given I am logged in as "rupak@sunset-pta.com"
     And I do not have the role "admin"
     And I do not have the role "board_member"
