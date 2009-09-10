@@ -4,7 +4,7 @@ class AssignmentsController < ApplicationController
     allow logged_in
   end
 
-  access_control :only => [:new, :edit, :create, :update, :destroy] do
+  access_control :only => [:new, :create, :destroy] do
     allow :admin, :board_member
   end
 
@@ -36,11 +36,6 @@ class AssignmentsController < ApplicationController
     end
   end
 
-  # GET users/:user_id/assignments/1/edit
-  def edit
-    @assignment = @user.assignments.find(params[:id])
-  end
-
   # POST users/:user_id/assignments
   # POST users/:user_id/assignments.xml
   def create
@@ -53,23 +48,6 @@ class AssignmentsController < ApplicationController
         format.xml  { render :xml => @assignment, :status => :created, :location => @assignment }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @assignment.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  # PUT users/:user_id/assignments/1
-  # PUT users/:user_id/assignments/1.xml
-  def update
-    @assignment = @user.assignments.find(params[:id])
-
-    respond_to do |format|
-      if @assignment.update_attributes(params[:assignment])
-        flash[:notice] = 'Committee assignment was successfully updated.'
-        format.html { redirect_to user_assignments_path(@user) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
         format.xml  { render :xml => @assignment.errors, :status => :unprocessable_entity }
       end
     end
