@@ -4,10 +4,10 @@ Feature: User Can Log In
   I want to be able to log in
 
   Scenario: Successful Login
-    Given there is a user "harold@example.com" with password "secret"
+    Given there is a user "harold@example.com" with password "JavaBeach!"
     When I go to the homepage
     And I follow "Login"
     And I fill in "Email" with "harold@example.com"
-    And I fill in "Password" with "secret"
+    And I fill in "Password" with "JavaBeach!"
     And I press "Login"
     Then I should see "Login successful!"

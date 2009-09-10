@@ -35,8 +35,8 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(params[:user])
-    @user.password = "secret"
-    @user.password_confirmation="secret"
+    @user.password = "JavaBeach!"
+    @user.password_confirmation="JavaBeach!"
     if @user.save
       flash[:notice] = "New user #{@user.full_name} created."
       redirect_to user_path(@user)

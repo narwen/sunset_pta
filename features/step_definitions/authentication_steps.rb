@@ -1,5 +1,5 @@
 Given /^I am logged in as "([^\"]*)"$/ do |email|
-  user = Factory(:user, :email => email, :password => 'secret')
+  user = Factory(:user, :email => email, :password => 'JavaBeach!')
   When %(I go to the login page)
   And %(I fill in "Email" with "#{user.email}")
   And %(I fill in "Password" with "#{user.password}")
