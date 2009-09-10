@@ -35,7 +35,8 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(params[:user])
-    @user.randomize_password
+    @user.password = "secret"
+    @user.password_confirmation="secret"
     if @user.save
       flash[:notice] = "New user #{@user.full_name} created."
       redirect_to user_path(@user)
