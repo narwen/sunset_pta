@@ -5,6 +5,7 @@ class Assignment < ActiveRecord::Base
 
   validates_presence_of :user_id, :committee_id, :duty_id
 
+# we don't need both of these. one or the other covers it.
   validates_uniqueness_of :committee_id, :scope => 'user_id'
   validates_uniqueness_of :user_id, :scope => 'committee_id'
 
