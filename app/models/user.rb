@@ -8,7 +8,8 @@ class User < ActiveRecord::Base
   acts_as_authorization_subject
 
   validates_presence_of :first_name, :last_name
-
+  validates_uniqueness_of :email, :message => "must be unique"
+  
   belongs_to :position
   has_many :students, :foreign_key => :parent_id
   

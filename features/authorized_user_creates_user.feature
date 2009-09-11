@@ -1,3 +1,4 @@
+@focus
 Feature: Authorized user can create a volunteer
   In order to track volunteers
   As an authorized user
@@ -27,3 +28,14 @@ Feature: Authorized user can create a volunteer
     And I do not have the role "board_member"
     And I go to the new user page
     Then I should see "Permission Denied!"
+    
+  Scenario: Authorized user fails to create volunteer with an email that's already in use
+    Given I am logged in as "bob@example.com"
+    And I have the role "board_member"
+    And I am on the new user page
+    And there is a user "becky@gmail.com"
+    When I fill in "first name" with "Rebecca"
+    And I fill in "last name" with "Wong"
+    And I fill in "email" with "becky@gmail.com"
+    And I press "Create Volunteer"
+    Then I should see "Email must be unique"
