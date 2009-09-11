@@ -25,7 +25,7 @@ Feature: Authorized user can create a volunteer
     And I press "Create User"
     Then I should see "New user Rebecca Wong created."
   
-  Scenario: Non authorized user fails to create a volunteer
+  Scenario: Non-authorized user fails to create a volunteer
     Given I am logged in as "bob@example.com"
     And I do not have the role "admin"
     And I do not have the role "board_member"
