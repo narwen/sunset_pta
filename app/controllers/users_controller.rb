@@ -38,7 +38,7 @@ class UsersController < ApplicationController
     @user.password = "JavaBeach!"
     @user.password_confirmation="JavaBeach!"
     if @user.save
-      flash[:notice] = "New user #{@user.full_name} created."
+      flash[:notice] = "New volunteer #{@user.full_name} created."
       redirect_to user_path(@user)
     else
       render :action => "new"

@@ -11,8 +11,8 @@ Feature: Authorized user can create a volunteer
     And I fill in "last name" with "Wong"
     And I fill in "address" with "111 Fake St."
     And I fill in "email" with "becky@gmail.com"
-    And I press "Create User"
-    Then I should see "New user Rebecca Wong created."
+    And I press "Create Volunteer"
+    Then I should see "New volunteer Rebecca Wong created."
 
   Scenario: Board Member creates a volunteer
     Given I am logged in as "bob@example.com"
@@ -22,8 +22,8 @@ Feature: Authorized user can create a volunteer
     And I fill in "last name" with "Wong"
     And I fill in "address" with "111 Fake St."    
     And I fill in "email" with "becky@gmail.com"
-    And I press "Create User"
-    Then I should see "New user Rebecca Wong created."
+    And I press "Create Volunteer"
+    Then I should see "New volunteer Rebecca Wong created."
   
   Scenario: Non-authorized user fails to create a volunteer
     Given I am logged in as "bob@example.com"
