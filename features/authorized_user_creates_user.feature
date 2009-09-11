@@ -39,3 +39,7 @@ Feature: Authorized user can create a volunteer
     And I fill in "email" with "becky@gmail.com"
     And I press "Create Volunteer"
     Then I should see "Email must be unique"
+    When I fill in "email" with ""
+    And I press "Create Volunteer"
+    Then I should not see "Email must be unique"
+    And I should see "New volunteer Rebecca Wong created."
