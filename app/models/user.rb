@@ -14,8 +14,8 @@ class User < ActiveRecord::Base
   has_many :assignments, :dependent => :destroy
   has_many :committees, :through => :assignments
   has_many :chaired_committees, :through => :assignments, :source => :committee,
-    :conditions => "assignments.duty_id = '" + Duty.find_by_name("Chair").id.to_s + "'"
-
+    :conditions => 'assignments.duty_id = '#{Duty.find_by_name("Chair").id.to_s}''
+  
   before_save :update_board_member_role
   after_save :demote_others_from_my_position
 
@@ -43,19 +43,19 @@ class User < ActiveRecord::Base
       position.demote_others(self) if position
     end
 
-  def is_chair?
-    return self.assignments.exists?(:duty_id => Duty.find_by_name("Chair").id)
-  end
-
-  def update_board_member_role
-    if is_chair?
-      has_role!(:board_member)
-    elsif self.position
-      has_role!(:board_member)
-    else
-      has_no_role!(:board_member)
+    def is_chair?
+      return self.assignments.exists?(:duty_id => Duty.find_by_name("Chair").id)
     end
-  end
+
+    def update_board_member_role
+      if is_chair?
+        has_role!(:board_member)
+      elsif self.position
+        has_role!(:board_member)
+      else
+        has_no_role!(:board_member)
+      end
+    end
 
     def delete_assignments
       self.assignments.clear
