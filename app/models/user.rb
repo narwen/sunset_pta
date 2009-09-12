@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   has_many :assignments, :dependent => :destroy
   has_many :committees, :through => :assignments
   has_many :chaired_committees, :through => :assignments, :source => :committee,
-    :conditions => 'assignments.duty_id = '#{Duty.find_by_name("Chair").id.to_s}''
+    :conditions => 'assignments.duty_id = #{Duty.find_by_name("Chair").id.to_s}'
   
   before_save :update_board_member_role
   after_save :demote_others_from_my_position
