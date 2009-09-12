@@ -10,16 +10,16 @@ Rails::Initializer.run do |config|
   config.active_record.observers = :user_observer
   config.time_zone = 'UTC'
 
-  # config.gem "ambethia-smtp-tls",
-  #   :lib     => "smtp-tls",
-  #   :version => "1.1.2",
-  #   :source  => "http://gems.github.com"
+  config.gem "ambethia-smtp-tls",
+    :lib     => "smtp-tls",
+    :version => "1.1.2",
+    :source  => "http://gems.github.com"
 
   config.gem "authlogic"
   config.gem "be9-acl9", :source => "http://gems.github.com", :lib => "acl9"
-  config.action_mailer.smtp_settings = {
-    :enable_starttls_auto => true
-  }
+  # config.action_mailer.smtp_settings = {
+  #   :enable_starttls_auto => true
+  # }
 
 end
 

@@ -28,6 +28,9 @@ module NavigationHelpers
     when /the profile page for "([^\"]*)"/
       user_path(User.find_by_email($1))
 
+    when /the profile page for volunteer with first name "([^\"]*)"/
+      user_path(User.find_by_first_name($1))
+
     when /the new user page/
       new_user_path
       

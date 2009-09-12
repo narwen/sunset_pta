@@ -10,6 +10,10 @@ class UsersController < ApplicationController
     allow logged_in, :if => :same_user?    
   end
 
+  access_control :only => :show, :helper => :show_invitation_link? do
+    allow :admin, :board_member, :if => :inactive?
+  end
+
   access_control :only => :edit, :helper => :show_edit_link? do
     allow :admin, :board_member
     allow logged_in, :if => :same_user?
@@ -21,6 +25,18 @@ class UsersController < ApplicationController
   
   def index
     @users = User.all(:order => 'last_name ASC')
+  end
+
+  def invite_volunteer
+    fetch_user
+    if @user.email.blank?
+      flash[:notice] = "Cannot send an invitation without an email address."
+      redirect_to :back
+    else
+      Notifier.deliver_signup_invitation(@user)
+      flash[:notice] = "Invitation sent."
+      redirect_to :back
+    end
   end
   
   def show
@@ -67,5 +83,8 @@ class UsersController < ApplicationController
   
   def same_user?
     current_user == @user
+  end
+  def inactive?
+    !@user.active
   end
 end

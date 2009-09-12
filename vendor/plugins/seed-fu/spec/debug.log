@@ -1,0 +1,127 @@
+# Logfile created on Sun Sep 13 14:52:39 -0400 2009 by logger.rb/22285
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1mCREATE TABLE "seeded_models" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "first_name" varchar(255), "last_name" varchar(255), "title" varchar(255)) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('0')[0m
+  [4;36;1mPosition Load (0.2ms)[0m   [0;1mSELECT "positions".id FROM "positions" WHERE ("positions"."title" = 'Position #1') LIMIT 1[0m
+  [4;35;1mPosition Load (0.1ms)[0m   [0mSELECT "positions".id FROM "positions" WHERE ("positions"."title" = 'President') LIMIT 1[0m
+  [4;36;1mPosition Create (0.3ms)[0m   [0;1mINSERT INTO "positions" ("created_at", "title", "updated_at") VALUES('2009-09-13 18:52:39', 'President', '2009-09-13 18:52:39')[0m
+  [4;35;1mPosition Load (0.1ms)[0m   [0mSELECT "positions".id FROM "positions" WHERE ("positions"."title" = 'President') LIMIT 1[0m
+  [4;36;1mPosition Load (0.1ms)[0m   [0;1mSELECT "positions".id FROM "positions" WHERE ("positions"."title" = 'Position #2') LIMIT 1[0m
+  [4;35;1mPosition Create (0.2ms)[0m   [0mINSERT INTO "positions" ("created_at", "title", "updated_at") VALUES('2009-09-13 18:52:39', 'Position #2', '2009-09-13 18:52:39')[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'user1@example.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '253a9e68163ea2667fa407d78508985f74dbeae59c3bac83e0ad51af963bfdd77422a3a1c4f8238ebc6e1d1fee618accd2ea8b98f545dcf26a74d8807bdb39d7') LIMIT 1[0m
+  [4;36;1mDuty Load (0.3ms)[0m   [0;1mSELECT * FROM "duties" WHERE ("duties"."name" = 'Chair') LIMIT 1[0m
+  [4;35;1mAssignment Load (0.1ms)[0m   [0mSELECT "assignments".id FROM "assignments" WHERE ("assignments"."duty_id" = 2) AND ("assignments".user_id = NULL) LIMIT 1[0m
+  [4;36;1mPosition Load (0.2ms)[0m   [0;1mSELECT * FROM "positions" WHERE ("positions"."id" = 1) [0m
+  [4;35;1mRole Load (0.1ms)[0m   [0mSELECT * FROM "roles" WHERE (name = 'board_member' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mRole Create (0.1ms)[0m   [0;1mINSERT INTO "roles" ("name", "created_at", "authorizable_type", "updated_at", "authorizable_id") VALUES('board_member', '2009-09-13 18:52:40', NULL, '2009-09-13 18:52:40', NULL)[0m
+  [4;35;1mRole Load (0.1ms)[0m   [0mSELECT "roles".id FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = NULL ) LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO "users" ("address", "created_at", "crypted_password", "updated_at", "home_phone", "password_salt", "cell_phone", "persistence_token", "last_name", "position_id", "email", "first_name") VALUES(NULL, '2009-09-13 18:52:40', '0c31442ef1b3949b110ad4c00887b5376b9c4941aa777c0cedd7a02ed10f5f3df5a9ac2b01b6e52e3e62dde3778831cedde04cc456d00bf5899ab1033b348e54', '2009-09-13 18:52:40', NULL, '8aS4L7G2HjRXoaNWsF5I', NULL, '253a9e68163ea2667fa407d78508985f74dbeae59c3bac83e0ad51af963bfdd77422a3a1c4f8238ebc6e1d1fee618accd2ea8b98f545dcf26a74d8807bdb39d7', 'Johnson', 1, 'user1@example.com', 'Bob')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO "roles_users" ("created_at", "updated_at", "role_id", "user_id") VALUES ('2009-09-13 18:52:40', '2009-09-13 18:52:40', 1, 1)[0m
+  [4;36;1mAssignment Load (0.1ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = NULL) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."position_id" = 1) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'user2@example.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'aa4c24729b955ec94da5296d8e58a74003eccd1cb37d38ed072f991f3f0fbb2406b80ff6ba935745aedd2791aa23772b1a7a51ff36f35dc29c19e3b7fb6b2a86') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '253a9e68163ea2667fa407d78508985f74dbeae59c3bac83e0ad51af963bfdd77422a3a1c4f8238ebc6e1d1fee618accd2ea8b98f545dcf26a74d8807bdb39d7') LIMIT 1[0m
+  [4;35;1mDuty Load (0.2ms)[0m   [0mSELECT * FROM "duties" WHERE ("duties"."name" = 'Chair') LIMIT 1[0m
+  [4;36;1mAssignment Load (0.1ms)[0m   [0;1mSELECT "assignments".id FROM "assignments" WHERE ("assignments"."duty_id" = 2) AND ("assignments".user_id = NULL) LIMIT 1[0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM "roles" WHERE (name = 'board_member' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mDELETE FROM "roles_users" WHERE user_id = NULL AND role_id IN (1)[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" INNER JOIN "roles_users" ON "users".id = "roles_users".user_id WHERE ("roles_users".role_id = 1 ) [0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO "users" ("address", "created_at", "crypted_password", "updated_at", "home_phone", "password_salt", "cell_phone", "persistence_token", "last_name", "position_id", "email", "first_name") VALUES(NULL, '2009-09-13 18:52:40', '5a11e62b238c228b3f9171d34681d3c6f58431e5b39544183eddc1aeb4583dcb536173a1d57b9e6bb2b2f0590c20f8390a05a2531ca5456991740ae8fbf01132', '2009-09-13 18:52:40', NULL, 'g8LOX5mVVUp_LOmVQSyq', NULL, 'aa4c24729b955ec94da5296d8e58a74003eccd1cb37d38ed072f991f3f0fbb2406b80ff6ba935745aedd2791aa23772b1a7a51ff36f35dc29c19e3b7fb6b2a86', 'Johnson', NULL, 'user2@example.com', 'Bob')[0m
+  [4;35;1mRole Load (0.1ms)[0m   [0mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = NULL ) [0m
+  [4;36;1mAssignment Load (0.1ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = NULL) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."position_id" = 1) [0m
+  [4;36;1mDuty Load (0.2ms)[0m   [0;1mSELECT * FROM "duties" WHERE ("duties"."name" = 'Chair') LIMIT 1[0m
+  [4;35;1mAssignment Load (0.1ms)[0m   [0mSELECT "assignments".id FROM "assignments" WHERE ("assignments"."duty_id" = 2) AND ("assignments".user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = 'board_member' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mDELETE FROM "roles_users" WHERE user_id = 1 AND role_id IN (1)[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "roles_users" ON "users".id = "roles_users".user_id WHERE ("roles_users".role_id = 1 ) [0m
+  [4;35;1mRole Destroy (0.1ms)[0m   [0mDELETE FROM "roles" WHERE "id" = 1[0m
+  [4;36;1mUser Update (0.1ms)[0m   [0;1mUPDATE "users" SET "persistence_token" = '253a9e68163ea2667fa407d78508985f74dbeae59c3bac83e0ad51af963bfdd77422a3a1c4f8238ebc6e1d1fee618accd2ea8b98f545dcf26a74d8807bdb39d7', "updated_at" = '2009-09-13 18:52:40', "created_at" = '2009-09-13 18:52:40', "email" = 'user1@example.com', "cell_phone" = NULL, "last_name" = 'Johnson', "home_phone" = NULL, "address" = NULL, "first_name" = 'Bob', "position_id" = NULL, "password_salt" = '8aS4L7G2HjRXoaNWsF5I', "crypted_password" = '0c31442ef1b3949b110ad4c00887b5376b9c4941aa777c0cedd7a02ed10f5f3df5a9ac2b01b6e52e3e62dde3778831cedde04cc456d00bf5899ab1033b348e54' WHERE "id" = 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'user3@example.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'a4c007016c61cb3ff08f5d84d61ca4f11ba01e580adaf137f08d3fc48ba4f23a279e89adb9a1478e595108b46f310b4a2dec7eb2769314b94cd01ceb8e4944ef') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mDuty Load (0.3ms)[0m   [0mSELECT * FROM "duties" WHERE ("duties"."name" = 'Chair') LIMIT 1[0m
+  [4;36;1mAssignment Load (0.1ms)[0m   [0;1mSELECT "assignments".id FROM "assignments" WHERE ("assignments"."duty_id" = 2) AND ("assignments".user_id = NULL) LIMIT 1[0m
+  [4;35;1mRole Load (0.1ms)[0m   [0mSELECT * FROM "roles" WHERE (name = 'board_member' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mUser Create (0.3ms)[0m   [0;1mINSERT INTO "users" ("address", "created_at", "crypted_password", "updated_at", "home_phone", "password_salt", "cell_phone", "persistence_token", "last_name", "position_id", "email", "first_name") VALUES(NULL, '2009-09-13 18:52:40', '5cbff805bf9b3cdfdcf94161fd9d9fe225d6d1de2f66ec69e17525cf9355370e0e3868e1929cced3d310682c5f3c5f149e988e8c174d2609494cf351b0a18369', '2009-09-13 18:52:40', NULL, 'ke9GoiaF3IRK_1XQChqw', NULL, 'a4c007016c61cb3ff08f5d84d61ca4f11ba01e580adaf137f08d3fc48ba4f23a279e89adb9a1478e595108b46f310b4a2dec7eb2769314b94cd01ceb8e4944ef', 'Johnson', NULL, 'user3@example.com', 'Bob')[0m
+  [4;35;1mAssignment Load (0.1ms)[0m   [0mSELECT * FROM "assignments" WHERE ("assignments".user_id = NULL) [0m
+  [4;36;1mDuty Load (0.2ms)[0m   [0;1mSELECT * FROM "duties" WHERE ("duties"."name" = 'Chair') LIMIT 1[0m
+  [4;35;1mAssignment Load (0.1ms)[0m   [0mSELECT "assignments".id FROM "assignments" WHERE ("assignments"."duty_id" = 2) AND ("assignments".user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.1ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = 'board_member' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mRole Create (0.1ms)[0m   [0mINSERT INTO "roles" ("name", "created_at", "authorizable_type", "updated_at", "authorizable_id") VALUES('board_member', '2009-09-13 18:52:40', NULL, '2009-09-13 18:52:40', NULL)[0m
+  [4;36;1mRole Load (0.1ms)[0m   [0;1mSELECT "roles".id FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO "roles_users" ("created_at", "updated_at", "role_id", "user_id") VALUES ('2009-09-13 18:52:40', '2009-09-13 18:52:40', 1, 1)[0m
+  [4;36;1mUser Update (0.1ms)[0m   [0;1mUPDATE "users" SET "persistence_token" = 'a4c007016c61cb3ff08f5d84d61ca4f11ba01e580adaf137f08d3fc48ba4f23a279e89adb9a1478e595108b46f310b4a2dec7eb2769314b94cd01ceb8e4944ef', "updated_at" = '2009-09-13 18:52:40', "created_at" = '2009-09-13 18:52:40', "email" = 'user3@example.com', "cell_phone" = NULL, "last_name" = 'Johnson', "home_phone" = NULL, "address" = NULL, "first_name" = 'Bob', "position_id" = 1013, "password_salt" = 'ke9GoiaF3IRK_1XQChqw', "crypted_password" = '5cbff805bf9b3cdfdcf94161fd9d9fe225d6d1de2f66ec69e17525cf9355370e0e3868e1929cced3d310682c5f3c5f149e988e8c174d2609494cf351b0a18369' WHERE "id" = 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'user4@example.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '8b8d9eb84ea931afb6cfcebcf873a34d0b920e501eb7174e9af440054498c67f79b37208547e0b0dc6a644758568e0349f6b31bfebda7e189db5f959071cb63b') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'a4c007016c61cb3ff08f5d84d61ca4f11ba01e580adaf137f08d3fc48ba4f23a279e89adb9a1478e595108b46f310b4a2dec7eb2769314b94cd01ceb8e4944ef') LIMIT 1[0m
+  [4;36;1mDuty Load (0.2ms)[0m   [0;1mSELECT * FROM "duties" WHERE ("duties"."name" = 'Chair') LIMIT 1[0m
+  [4;35;1mAssignment Load (0.1ms)[0m   [0mSELECT "assignments".id FROM "assignments" WHERE ("assignments"."duty_id" = 2) AND ("assignments".user_id = NULL) LIMIT 1[0m
+  [4;36;1mRole Load (0.1ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = 'board_member' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO "users" ("address", "created_at", "crypted_password", "updated_at", "home_phone", "password_salt", "cell_phone", "persistence_token", "last_name", "position_id", "email", "first_name") VALUES(NULL, '2009-09-13 18:52:40', '457cdfdae317a6842201552ad754ac839300862ccc22f231d19b81d5de6952f1414b62c1ed70bd604a5ee2844f83e5febb53d8be8ce27cab1ef15cf0bb379eaa', '2009-09-13 18:52:40', NULL, '2GF5USwCxOFcEoswVl1Z', NULL, '8b8d9eb84ea931afb6cfcebcf873a34d0b920e501eb7174e9af440054498c67f79b37208547e0b0dc6a644758568e0349f6b31bfebda7e189db5f959071cb63b', 'Johnson', NULL, 'user4@example.com', 'Bob')[0m
+  [4;36;1mAssignment Load (0.1ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = NULL) [0m
+  [4;35;1mDuty Load (0.2ms)[0m   [0mSELECT * FROM "duties" WHERE ("duties"."name" = 'Chair') LIMIT 1[0m
+  [4;36;1mAssignment Load (0.1ms)[0m   [0;1mSELECT "assignments".id FROM "assignments" WHERE ("assignments"."duty_id" = 2) AND ("assignments".user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.1ms)[0m   [0mSELECT * FROM "roles" WHERE (name = 'board_member' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mRole Create (0.2ms)[0m   [0;1mINSERT INTO "roles" ("name", "created_at", "authorizable_type", "updated_at", "authorizable_id") VALUES('board_member', '2009-09-13 18:52:40', NULL, '2009-09-13 18:52:40', NULL)[0m
+  [4;35;1mRole Load (0.1ms)[0m   [0mSELECT "roles".id FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO "roles_users" ("created_at", "updated_at", "role_id", "user_id") VALUES ('2009-09-13 18:52:40', '2009-09-13 18:52:40', 1, 1)[0m
+  [4;35;1mUser Update (0.1ms)[0m   [0mUPDATE "users" SET "persistence_token" = '8b8d9eb84ea931afb6cfcebcf873a34d0b920e501eb7174e9af440054498c67f79b37208547e0b0dc6a644758568e0349f6b31bfebda7e189db5f959071cb63b', "updated_at" = '2009-09-13 18:52:40', "created_at" = '2009-09-13 18:52:40', "email" = 'user4@example.com', "cell_phone" = NULL, "last_name" = 'Johnson', "home_phone" = NULL, "address" = NULL, "first_name" = 'Bob', "position_id" = 1014, "password_salt" = '2GF5USwCxOFcEoswVl1Z', "crypted_password" = '457cdfdae317a6842201552ad754ac839300862ccc22f231d19b81d5de6952f1414b62c1ed70bd604a5ee2844f83e5febb53d8be8ce27cab1ef15cf0bb379eaa' WHERE "id" = 1[0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = 'board_member') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'user5@example.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '56b21129fdc1c56de2d9bcb1c16b1227683e4faf7891841ca4d834252097a17e119a523d62751b7280b00c35b8b11c782ed1b484bc7134d464851f8bdf77c94a') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '8b8d9eb84ea931afb6cfcebcf873a34d0b920e501eb7174e9af440054498c67f79b37208547e0b0dc6a644758568e0349f6b31bfebda7e189db5f959071cb63b') LIMIT 1[0m
+  [4;36;1mDuty Load (0.2ms)[0m   [0;1mSELECT * FROM "duties" WHERE ("duties"."name" = 'Chair') LIMIT 1[0m
+  [4;35;1mAssignment Load (0.1ms)[0m   [0mSELECT "assignments".id FROM "assignments" WHERE ("assignments"."duty_id" = 2) AND ("assignments".user_id = NULL) LIMIT 1[0m
+  [4;36;1mRole Load (0.1ms)[0m   [0;1mSELECT * FROM "roles" WHERE (name = 'board_member' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO "users" ("address", "created_at", "crypted_password", "updated_at", "home_phone", "password_salt", "cell_phone", "persistence_token", "last_name", "position_id", "email", "first_name") VALUES(NULL, '2009-09-13 18:52:40', 'aed5144fe25580d939ebb132230ef1e5b27f5163e0722d40ca9b86e9359a358d57542b9ac14ce2e85bf143e756d14d9a4cc963300d35658f99bcd3ac1cd62fb6', '2009-09-13 18:52:40', NULL, 'h-Zd4_fE3Mna_4wlpnpc', NULL, '56b21129fdc1c56de2d9bcb1c16b1227683e4faf7891841ca4d834252097a17e119a523d62751b7280b00c35b8b11c782ed1b484bc7134d464851f8bdf77c94a', 'Johnson', NULL, 'user5@example.com', 'Bob')[0m
+  [4;36;1mAssignment Load (0.1ms)[0m   [0;1mSELECT * FROM "assignments" WHERE ("assignments".user_id = NULL) [0m
+  [4;35;1mRole Load (0.1ms)[0m   [0mSELECT * FROM "roles" WHERE (name = 'board_member' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mRole Create (0.1ms)[0m   [0;1mINSERT INTO "roles" ("name", "created_at", "authorizable_type", "updated_at", "authorizable_id") VALUES('board_member', '2009-09-13 18:52:40', NULL, '2009-09-13 18:52:40', NULL)[0m
+  [4;35;1mRole Load (0.1ms)[0m   [0mSELECT "roles".id FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."id" = 1) AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO "roles_users" ("created_at", "updated_at", "role_id", "user_id") VALUES ('2009-09-13 18:52:40', '2009-09-13 18:52:40', 1, 1)[0m
+  [4;35;1mDuty Load (0.2ms)[0m   [0mSELECT * FROM "duties" WHERE ("duties"."name" = 'Chair') LIMIT 1[0m
+  [4;36;1mAssignment Load (0.1ms)[0m   [0;1mSELECT "assignments".id FROM "assignments" WHERE ("assignments"."duty_id" = 2) AND ("assignments".user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM "roles" WHERE (name = 'board_member' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mDELETE FROM "roles_users" WHERE user_id = 1 AND role_id IN (1)[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM "users" INNER JOIN "roles_users" ON "users".id = "roles_users".user_id WHERE ("roles_users".role_id = 1 ) [0m
+  [4;36;1mRole Destroy (0.1ms)[0m   [0;1mDELETE FROM "roles" WHERE "id" = 1[0m
+  [4;35;1mUser Update (0.1ms)[0m   [0mUPDATE "users" SET "persistence_token" = '56b21129fdc1c56de2d9bcb1c16b1227683e4faf7891841ca4d834252097a17e119a523d62751b7280b00c35b8b11c782ed1b484bc7134d464851f8bdf77c94a', "updated_at" = '2009-09-13 18:52:40', "created_at" = '2009-09-13 18:52:40', "email" = 'user5@example.com', "cell_phone" = NULL, "last_name" = 'Johnson', "home_phone" = NULL, "address" = NULL, "first_name" = 'Bob', "position_id" = NULL, "password_salt" = 'h-Zd4_fE3Mna_4wlpnpc', "crypted_password" = 'aed5144fe25580d939ebb132230ef1e5b27f5163e0722d40ca9b86e9359a358d57542b9ac14ce2e85bf143e756d14d9a4cc963300d35658f99bcd3ac1cd62fb6' WHERE "id" = 1[0m
+  [4;36;1mRole Load (0.1ms)[0m   [0;1mSELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles"."name" = 'board_member') AND ("roles_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mRole Load (0.1ms)[0m   [0mSELECT * FROM "roles" WHERE (name = 'board_member' and authorizable_type IS NULL and authorizable_id IS NULL) LIMIT 1[0m
+  [4;36;1mRole Load (0.1ms)[0m   [0;1mSELECT * FROM "roles" INNER JOIN "roles_users" ON "roles".id = "roles_users".role_id WHERE ("roles_users".user_id = 1 ) [0m
+  [4;35;1mPosition Load (0.2ms)[0m   [0mSELECT * FROM "positions" [0m
+  [4;36;1mSeededModel Load (0.1ms)[0m   [0;1mSELECT * FROM "seeded_models" WHERE ("seeded_models"."id" = 1) [0m
+  [4;35;1mSeededModel Create (0.3ms)[0m   [0mINSERT INTO "seeded_models" ("title", "id", "last_name", "login", "first_name") VALUES('Peon', 1, 'Bobson', 'bob', 'Bob')[0m
+  [4;36;1mSeededModel Load (0.2ms)[0m   [0;1mSELECT * FROM "seeded_models" WHERE ("seeded_models"."id" = 1) LIMIT 1[0m
+  [4;35;1mSeededModel Load (0.1ms)[0m   [0mSELECT * FROM "seeded_models" WHERE ("seeded_models"."title" = 'Peon' AND "seeded_models"."login" = 'bob') [0m
+  [4;36;1mSeededModel Create (0.2ms)[0m   [0;1mINSERT INTO "seeded_models" ("title", "last_name", "login", "first_name") VALUES('Peon', NULL, 'bob', 'Bob')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "seeded_models" [0m
+  [4;36;1mSeededModel Load (0.1ms)[0m   [0;1mSELECT * FROM "seeded_models" WHERE ("seeded_models"."title" = 'Peon' AND "seeded_models"."login" = 'frank') [0m
+  [4;35;1mSeededModel Create (0.1ms)[0m   [0mINSERT INTO "seeded_models" ("title", "last_name", "login", "first_name") VALUES('Peon', NULL, 'frank', 'Frank')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "seeded_models" [0m
+  [4;35;1mSeededModel Load (0.2ms)[0m   [0mSELECT * FROM "seeded_models" WHERE ("seeded_models"."login" = 'bob') LIMIT 1[0m
+  [4;36;1mSeededModel Load (0.2ms)[0m   [0;1mSELECT * FROM "seeded_models" WHERE ("seeded_models"."title" = 'Peon' AND "seeded_models"."login" = 'bob') [0m
+  [4;35;1mSeededModel Update (0.1ms)[0m   [0mUPDATE "seeded_models" SET "title" = 'Peon', "login" = 'bob', "last_name" = NULL, "first_name" = 'Steve' WHERE "id" = 1[0m
+  [4;36;1mSeededModel Load (0.2ms)[0m   [0;1mSELECT * FROM "seeded_models" WHERE ("seeded_models"."login" = 'bob') LIMIT 1[0m
+  [4;35;1mSeededModel Load (0.1ms)[0m   [0mSELECT * FROM "seeded_models" WHERE ("seeded_models"."title" = 'Peon' AND "seeded_models"."login" = 'bob') [0m
+  [4;36;1mSeededModel Create (0.2ms)[0m   [0;1mINSERT INTO "seeded_models" ("title", "last_name", "login", "first_name") VALUES('Peon', NULL, 'bob', 'Steve')[0m
+  [4;35;1mSeededModel Load (0.1ms)[0m   [0mSELECT * FROM "seeded_models" WHERE ("seeded_models"."title" = 'Peasant' AND "seeded_models"."login" = 'frank') [0m
+  [4;36;1mSeededModel Create (0.1ms)[0m   [0;1mINSERT INTO "seeded_models" ("title", "last_name", "login", "first_name") VALUES('Peasant', NULL, 'frank', 'Francis')[0m
+  [4;35;1mSeededModel Load (0.1ms)[0m   [0mSELECT * FROM "seeded_models" WHERE ("seeded_models"."title" = 'Noble' AND "seeded_models"."login" = 'harry') [0m
+  [4;36;1mSeededModel Create (0.1ms)[0m   [0;1mINSERT INTO "seeded_models" ("title", "last_name", "login", "first_name") VALUES('Noble', NULL, 'harry', 'Harry')[0m
+  [4;35;1mSeededModel Load (0.2ms)[0m   [0mSELECT * FROM "seeded_models" WHERE ("seeded_models"."login" = 'bob') LIMIT 1[0m
+  [4;36;1mSeededModel Load (0.2ms)[0m   [0;1mSELECT * FROM "seeded_models" WHERE ("seeded_models"."login" = 'frank') LIMIT 1[0m
+  [4;35;1mSeededModel Load (0.2ms)[0m   [0mSELECT * FROM "seeded_models" WHERE ("seeded_models"."login" = 'harry') LIMIT 1[0m
