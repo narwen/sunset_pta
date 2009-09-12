@@ -10,6 +10,10 @@ class UsersController < ApplicationController
     allow logged_in, :if => :same_user?    
   end
 
+  access_control :helper => :show_invitation_link? do
+    allow :admin, :board_member
+  end
+
   access_control :only => :edit, :helper => :show_edit_link? do
     allow :admin, :board_member
     allow logged_in, :if => :same_user?

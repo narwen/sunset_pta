@@ -2,6 +2,10 @@ Given /^there is a user "([^\"]*)"$/ do |email|
   Factory(:user, :email => email)
 end
 
+Given /^there is a non-user volunteer with first name "([^\"]*)"$/ do |first_name|
+  Factory(:user, :first_name => first_name, :email => nil)
+end
+
 Given /^there are users ((?:"[^\"]*",? ?)+)$/ do |quoted_emails|
   quoted_strings(quoted_emails).each do |email|
     user = Factory(:user, :email => email)
