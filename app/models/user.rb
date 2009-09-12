@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   merge_validates_uniqueness_of_email_field_options({:allow_blank => true})
   merge_validates_length_of_email_field_options({:allow_blank => true})
   merge_validates_format_of_email_field_options({:allow_blank => true})
+  
   acts_as_authentic
   acts_as_authorization_subject
 

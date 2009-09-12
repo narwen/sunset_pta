@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090911171109) do
+ActiveRecord::Schema.define(:version => 20090914150535) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
@@ -69,10 +69,11 @@ ActiveRecord::Schema.define(:version => 20090911171109) do
     t.datetime "updated_at"
     t.string   "address"
     t.integer  "position_id"
-    t.string   "first_name",        :null => false
-    t.string   "last_name",         :null => false
+    t.string   "first_name",                           :null => false
+    t.string   "last_name",                            :null => false
     t.string   "home_phone"
     t.string   "cell_phone"
+    t.boolean  "active",            :default => false, :null => false
   end
 
 end

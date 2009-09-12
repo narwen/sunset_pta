@@ -4,4 +4,5 @@ Factory.define(:user) do |u|
   u.last_name "Johnson"
   u.password "secret"
   u.password_confirmation "secret"
+  u.active true
 end

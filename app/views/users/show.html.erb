@@ -14,3 +14,6 @@
 <p><%= link_to "View Students", user_students_path(@user) %></p>
 <p><%= link_to "View Committee Assignments", user_assignments_path(@user) %></p>
 
+<% if show_invitation_link? %>
+<p><%= link_to "Send Email Invitation", invite_volunteer_path(@user) %></p>
+<% end %>
