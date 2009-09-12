@@ -1,17 +1,16 @@
 class User < ActiveRecord::Base
 
-
-  acts_as_authentic do |c|
-    c.validate_email_field = false
-  end
-  
+  merge_validates_uniqueness_of_email_field_options({:allow_blank => true})
+  merge_validates_length_of_email_field_options({:allow_blank => true})
+  merge_validates_format_of_email_field_options({:allow_blank => true})
+  acts_as_authentic
   acts_as_authorization_subject
 
-  validates_presence_of :first_name, :last_name, :address, :cell_phone, :home_phone  
+  validates_presence_of :first_name, :last_name
 
   belongs_to :position
   has_many :students, :foreign_key => :parent_id
-  
+
   has_many :assignments, :dependent => :destroy
   has_many :committees, :through => :assignments
   has_many :chaired_committees, :through => :assignments, :source => :committee,
@@ -40,9 +39,9 @@ class User < ActiveRecord::Base
 
   private
 
-  def demote_others_from_my_position
-    position.demote_others(self) if position
-  end
+    def demote_others_from_my_position
+      position.demote_others(self) if position
+    end
 
   def is_chair?
     return self.assignments.exists?(:duty_id => Duty.find_by_name("Chair").id)
@@ -58,8 +57,8 @@ class User < ActiveRecord::Base
     end
   end
 
-  def delete_assignments
-    self.assignments.clear
-  end
+    def delete_assignments
+      self.assignments.clear
+    end
 
 end
