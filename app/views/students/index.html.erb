@@ -1,6 +1,8 @@
 <h2>Student info for <%=h @user.full_name %></h2>
 
-<%= link_to "Add Student", new_user_student_path(@user) %>
+<% if show_new_link? %>
+  <%= link_to "Add Student", new_user_student_path(@user) %>
+<% end %>
 
 <table>
   <tr>
@@ -15,8 +17,8 @@
       <td><%=h student.grade %></td>
       <td><%=h student.room %></td>
       <td><%=h student.teacher %></td>
-      <td><%= link_to "Edit", edit_user_student_path(@user, student) %></td>
-      <td><%= link_to "Delete", user_student_path(@user, student), :method => :delete %></td>
+      <td><% if show_edit_link? %><%= link_to "Edit", edit_user_student_path(@user, student) %> <% end %></td>
+      <td><% if show_delete_link? %><%= link_to "Delete", user_student_path(@user, student), :method => :delete %> <% end %></td>
     </tr>
   <% end %>
 </table>

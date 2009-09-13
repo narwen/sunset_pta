@@ -1,6 +1,26 @@
 class StudentsController < ApplicationController
   before_filter :fetch_user
 
+  access_control :only => :index do
+    allow logged_in
+  end
+
+  access_control :only => :new, :helper => :show_new_link? do
+    allow :admin, :board_member
+    allow logged_in, :if => :same_user?
+  end
+  
+  access_control :only => :edit, :helper => :show_edit_link? do
+    allow :admin, :board_member
+    allow logged_in, :if => :same_user?
+  end
+  
+  access_control :only => :destroy, :helper => :show_delete_link? do
+    allow :admin, :board_member
+    allow logged_in, :if => :same_user?
+  end
+
+
   def index
     @students = @user.students
   end
@@ -44,5 +64,9 @@ class StudentsController < ApplicationController
   private
   def fetch_user
     @user = User.find(params[:user_id])
+  end
+  
+  def same_user?
+     current_user == @user
   end
 end
