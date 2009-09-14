@@ -8,5 +8,5 @@ ActionMailer::Base.smtp_settings = {
   :password       => ENV['GMAIL_PASSWORD']
 }
 
-DO_NOT_REPLY ||= "donotreply@noreply.com"
+# DO_NOT_REPLY ||= "donotreply@noreply.com"
 
