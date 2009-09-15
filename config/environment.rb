@@ -17,9 +17,6 @@ Rails::Initializer.run do |config|
 
   config.gem "authlogic"
   config.gem "be9-acl9", :source => "http://gems.github.com", :lib => "acl9"
-  # config.action_mailer.smtp_settings = {
-  #   :enable_starttls_auto => true
-  # }
 
 end
 

@@ -1,41 +1,21 @@
 # This file is copied to ~/spec when you run 'ruby script/generate rspec'
 # from the project root directory.
-ENV["RAILS_ENV"] = 'test'
-require File.dirname(__FILE__) + "/../config/environment"
-require 'spec/autorun'
+ENV["RAILS_ENV"] = "test"
+require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
+require 'spec'
 require 'spec/rails'
-require 'factory_girl'
 
-require 'webrat'
-
-require "email_spec/helpers"
-require "email_spec/matchers"
-
-Factory.definition_file_paths = [
-  File.join(RAILS_ROOT, 'spec', 'factories')
-]
-Factory.find_definitions
-
-# Requires supporting files with custom matchers and macros, etc,
-# in ./support/ and its subdirectories.
-Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
-
-
-# require duty shared fixture
-require File.join(RAILS_ROOT, 'features', 'fixtures', 'duties')
+require File.expand_path(File.dirname(__FILE__) + "/model_factory.rb")
+require (RAILS_ROOT + '/../../lib/email_spec.rb')
 
 Spec::Runner.configure do |config|
+  config.include(Fixjour)
   # If you're not using ActiveRecord you should remove these
   # lines, delete config/database.yml and disable :active_record
   # in your config/boot.rb
-  config.use_transactional_fixtures = true
-  config.use_instantiated_fixtures  = false
-  config.fixture_path = RAILS_ROOT + '/spec/fixtures/'
-
-  config.include Webrat::Matchers, :type => :views
-
-  # config.include(EmailSpec::Helpers)
-  # config.include(EmailSpec::Matchers)
+  #config.use_transactional_fixtures = true
+  #config.use_instantiated_fixtures  = false
+  #config.fixture_path = RAILS_ROOT + '/spec/fixtures/'
 
   # == Fixtures
   #
@@ -66,6 +46,6 @@ Spec::Runner.configure do |config|
   # config.mock_with :rr
   #
   # == Notes
-  #
+  # 
   # For more information take a look at Spec::Runner::Configuration and Spec::Runner
 end

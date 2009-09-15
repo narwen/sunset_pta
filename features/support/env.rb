@@ -2,7 +2,7 @@ require 'rubygems'
 
 prefork = lambda {
   # Sets up the Rails environment for Cucumber
-  ENV["RAILS_ENV"] = "cucumber"
+  ENV["RAILS_ENV"] = "test"
   require File.expand_path(File.dirname(__FILE__) + '/../../config/environment')
 
   require 'webrat'
@@ -25,6 +25,7 @@ prefork = lambda {
 each_run = lambda {
   # This code will be run each time you run your specs.
   require 'cucumber/rails/world'
+  # require 'email_spec/cucumber'
 
   # Comment out the next line if you don't want transactions to
   # open/roll back around each scenario
