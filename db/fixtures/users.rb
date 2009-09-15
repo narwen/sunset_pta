@@ -3,6 +3,7 @@ User.seed(:email) do |u|
   u.first_name = "Bob"
   u.last_name = "Bobson"
   u.password = u.password_confirmation = "JavaBeach!"
+  u.active = true
 end
 
 User.seed(:email) do |u|
@@ -10,6 +11,7 @@ User.seed(:email) do |u|
   u.first_name = "Jake"
   u.last_name = "Philby"
   u.password = u.password_confirmation = "JavaBeach!"
+  u.active = true
 end
 
 User.find_by_email("admin@example.org").has_role!(:admin)
@@ -20,4 +22,5 @@ User.seed(:email) do |u|
   u.last_name = "Jakobi"
   u.password = u.password_confirmation = "JavaBeach!"
   u.position = Position.find_or_create_by_title("President")
+  u.active = true
 end
