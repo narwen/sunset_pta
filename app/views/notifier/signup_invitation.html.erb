@@ -1,22 +1,22 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-  <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-  <title>Sunset PTA Invitation</title>
-  </head>
-  <body>
-    <b>You've been invited to the Sunset PTA!</b>
-    <br/><br/>
-    You have signed up using the following details:<br/>
-    <blockquote>
-      Name: <%= @user.full_name %><br />
-      Email: <%= @user.email %><br />
-    </blockquote>
-    <br />
-    Please click on the link below to complete your sign up process.<br />
-    <%= link_to "Click here to activate your account!", activate_user_url %><br />
-    <br/>
-    This is an auto-generated email. Please do not reply to this email.<br/>
-  </body>
-</html>
+  <html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>Sunset PTA Invitation</title>
+    </head>
+    <body>
+      <b>You've been invited to the Sunset PTA!</b>
+      <br/><br/>
+      You have signed up using the following details:<br/>
+      <blockquote>
+        Name: <%= @user.full_name %><br />
+        Email: <%= @user.email %><br />
+      </blockquote>
+      <br />
+      Please click on the link below to complete your sign up process.<br />
+      <%= @account_activation_url %><br />
+      <br/>
+      This is an auto-generated email. Please do not reply to this email.<br/>
+    </body>
+  </html>
 

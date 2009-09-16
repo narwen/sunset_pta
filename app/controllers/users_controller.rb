@@ -33,8 +33,7 @@ class UsersController < ApplicationController
       flash[:notice] = "Cannot send an invitation without an email address."
       redirect_to :back
     else
-      # @user.deliver_signup_invitation!
-      @user.deliver_activation_instructions!
+      @user.deliver_signup_invitation!
       flash[:notice] = "Invitation sent."
       redirect_to :back
     end
