@@ -8,7 +8,8 @@ class Notifier < ActionMailer::Base
     from          "noreply@sunset-pta.heroku.com"
     recipients    user.email
     sent_on       Time.now
-    body          {:account_activation_url => register_url(user.perishable_token), :user => user}
+    body          :account_activation_url => register_url(user.perishable_token)
+    body          :user => user
   end
 
   def activation_confirmation(user)
@@ -16,7 +17,8 @@ class Notifier < ActionMailer::Base
     from          "noreply@sunset-pta.heroku.com"
     recipients    user.email
     sent_on       Time.now
-    body          {:root_url => root_url, :user => user}
+    body          :root_url => root_url
+    body          :user => user
   end
 
 end

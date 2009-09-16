@@ -32,9 +32,9 @@ class User < ActiveRecord::Base
     save
   end
 
-  def deliver_activation_instructions!
+  def deliver_signup_invitation!
     reset_perishable_token!
-    Notifier.deliver_activation_instructions(self)
+    Notifier.deliver_signup_invitation(self)
   end
 
   def deliver_activation_confirmation!
