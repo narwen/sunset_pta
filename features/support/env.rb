@@ -46,3 +46,5 @@ rescue LoadError
   prefork.call
   each_run.call
 end
+
+require File.expand_path(File.dirname(__FILE__) + '/../../db/fixtures/duties.rb')

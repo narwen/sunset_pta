@@ -3,17 +3,23 @@
 <table>
   <tr>
     <th>Name</th>
+    <th>Chair(s)</th>
   </tr>
 
-<% @committees.each do |committee| %>
+<%- @committees.each do |committee| -%>
   <tr>
-    <td><%=h committee.name %></td>
-  <% if can_edit_committees? %>
+    <td><%= link_to(committee.name, committee_path(committee)) %></td>
+    <td>
+      <%- committee.chairs.each do |chair| -%>
+        <%= chair.full_name %><br />
+      <%- end -%>
+    </td>
+  <%- if can_edit_committees? -%>
     <td><%= link_to 'Edit', edit_committee_path(committee) %></td>
     <td><%= link_to 'Delete', committee, :confirm => 'Are you sure?', :method => :delete %></td>
-  <% end %>
+  <%- end -%>
   </tr>
-<% end %>
+<%- end -%>
 </table>
 
 <br />
