@@ -9,7 +9,6 @@ class Notifier < ActionMailer::Base
     recipients    user.email
     sent_on       Time.now
     body          :account_activation_url => register_url(user.perishable_token)
-    body          :user => user
   end
 
   def activation_confirmation(user)
