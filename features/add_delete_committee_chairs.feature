@@ -66,7 +66,7 @@ Scenario: Admin can delete a committee chair, which updates corresponding permis
     And "chris@gmail.com" is assigned to "Xmas" as "Chair"
     When I go to the profile page for "chris@gmail.com"
     And I follow "View Committee Assignments"
-    Then I should see /Xmas\s+Chair[\s,A-Z,a-z]+Delete/
+    Then I should see /Xmas\s+Chair[\sA-Za-z]+Delete/
     And I follow "Delete"
     Then I should not see /Xmas\s+Chair/
     When I follow "Logout"
@@ -84,7 +84,7 @@ Scenario: Board member can delete a committee chair, which updates corresponding
     And "tom@gmail.com" is assigned to "Halloween" as "Chair"
     When I go to the profile page for "tom@gmail.com"
     And I follow "View Committee Assignments"
-    Then I should see /Halloween\s+Chair[\s,A-Z,a-z]+Delete/
+    Then I should see /Halloween\s+Chair[\sA-Za-z]+Delete/
     And I follow "Delete"
     Then I should not see /Halloween\s+Chair/
     When I follow "Logout"
@@ -104,7 +104,7 @@ Scenario: Non admin, non board member fails to delete a committee chair
     When I go to the profile page for "petros@gmail.com"
     And I follow "View Committee Assignments"
     Then I should see /Tech\s+Chair/
-    And I should not see /Tech\s+Chair[\s,A-Z,a-z]+Delete/
+    And I should not see /Tech\s+Chair[\sA-Za-z]+Delete/
 
 
 
