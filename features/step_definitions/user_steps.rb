@@ -2,8 +2,10 @@ Given /^there is a user "([^\"]*)"$/ do |email|
   Factory(:user, :email => email)
 end
 
-Given /^there is a non-user volunteer with first name "([^\"]*)"$/ do |first_name|
-  Factory(:user, :first_name => first_name, :active => false)
+Given /^"([^\"]*)" is inactive$/ do |email|
+  u = User.find_by_email(email)
+  u.active = false
+  u.save
 end
 
 Given /^there are users ((?:"[^\"]*",? ?)+)$/ do |quoted_emails|

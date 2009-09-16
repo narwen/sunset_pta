@@ -11,4 +11,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :users, :has_many => [:students, :assignments]
   map.resource :user_session
+  
+  map.register '/register/:activation_code', :controller => 'activations', :action => 'new'
+  map.activate '/activate/:id', :controller => 'activations', :action => 'create'
+  
 end

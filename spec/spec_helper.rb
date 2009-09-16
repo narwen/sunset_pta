@@ -34,8 +34,8 @@ Spec::Runner.configure do |config|
 
   config.include Webrat::Matchers, :type => :views
 
-  # config.include(EmailSpec::Helpers)
-  # config.include(EmailSpec::Matchers)
+  config.include(EmailSpec::Helpers)
+  config.include(EmailSpec::Matchers)
 
   # == Fixtures
   #

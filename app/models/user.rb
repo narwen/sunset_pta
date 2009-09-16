@@ -1,9 +1,10 @@
 class User < ActiveRecord::Base
+  attr_accessible :persistance_token, :home_phone, :cell_phone, :address, :position_id, :last_name, :first_name, :email, :password, :password_confirmation
 
   merge_validates_uniqueness_of_email_field_options({:allow_blank => true})
   merge_validates_length_of_email_field_options({:allow_blank => true})
   merge_validates_format_of_email_field_options({:allow_blank => true})
-  
+
   acts_as_authentic
   acts_as_authorization_subject
 
@@ -16,14 +17,33 @@ class User < ActiveRecord::Base
   has_many :committees, :through => :assignments
   has_many :chaired_committees, :through => :assignments, :source => :committee,
     :conditions => 'assignments.duty_id = #{Duty.find_by_name("Chair").id.to_s}'
-  
-  before_save :update_board_member_role
+
+    before_save :update_board_member_role
   after_save :demote_others_from_my_position
 
   before_destroy :delete_assignments
 
   def full_name
     first_name + ' ' + last_name
+  end
+
+  def activate!
+    self.active = true
+    save
+  end
+
+  def deliver_activation_instructions!
+    reset_perishable_token!
+    Notifier.deliver_activation_instructions(self)
+  end
+
+  def deliver_activation_confirmation!
+    reset_perishable_token!
+    Notifier.deliver_activation_confirmation(self)
+  end
+
+  def active?
+    active
   end
 
   def User.unique_chairs

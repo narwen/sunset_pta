@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090914150535) do
+ActiveRecord::Schema.define(:version => 20090916180521) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(:version => 20090914150535) do
     t.string   "home_phone"
     t.string   "cell_phone"
     t.boolean  "active",            :default => false, :null => false
+    t.string   "perishable_token"
   end
 
 end
