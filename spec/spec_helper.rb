@@ -22,7 +22,7 @@ Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
 
 # require duty shared fixture
-require File.join(RAILS_ROOT, 'features', 'fixtures', 'duties')
+require File.join(RAILS_ROOT, 'db', 'fixtures', 'duties')
 
 Spec::Runner.configure do |config|
   # If you're not using ActiveRecord you should remove these
