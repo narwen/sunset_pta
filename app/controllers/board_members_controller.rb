@@ -15,8 +15,11 @@ class BoardMembersController < UsersController
   end
   
   def index
+    # first get all the board members that have a position
     @board_members = User.all(:joins => :position)
- 
+    # then get all the board members that are chairs. Chairs may not have positions.
+    @chairs = User.unique_chairs
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml { render :xml => @board_members }
