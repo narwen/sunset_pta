@@ -1,0 +1,28 @@
+<p>
+  <b>Committee Name:</b>
+  <%= @committee.name %>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Duty</th>
+  </tr>
+
+<% @committee.chairs.each do |chair| %>
+  <tr>
+    <td><%= chair.full_name %></td>
+    <td>Chair</td>
+  </tr>
+<% end %>
+<% @committee.volunteers.each do |volunteer| %>
+  <tr>
+    <td><%= volunteer.full_name %></td>
+    <td>Volunteer</td>
+  </tr>
+<% end %>
+</table>
+
+</p>
+<br />
+
+<%= link_to 'Back', committees_path %>

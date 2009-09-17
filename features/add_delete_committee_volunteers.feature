@@ -51,7 +51,7 @@ Scenario: Admin can delete a committee volunteer
     And "chris@gmail.com" is assigned to "Xmas" as "Volunteer"
     When I go to the profile page for "chris@gmail.com"
     And I follow "View Committee Assignments"
-    Then I should see /Xmas\s+Volunteer[\s,A-Z,a-z]+Delete/
+    Then I should see /Xmas\s+Volunteer[\sA-Za-z]+Delete/
     And I follow "Delete"
     Then I should not see /Xmas\s+Volunteer/
 
@@ -63,7 +63,7 @@ Scenario: Board member can delete a committee volunteer
     And "tom@gmail.com" is assigned to "Halloween" as "Volunteer"
     When I go to the profile page for "tom@gmail.com"
     And I follow "View Committee Assignments"
-    Then I should see /Halloween\s+Volunteer[\s,A-Z,a-z]+Delete/
+    Then I should see /Halloween\s+Volunteer[\sA-Za-z]+Delete/
     And I follow "Delete"
     Then I should not see /Halloween\s+Volunteer/
 
@@ -77,7 +77,7 @@ Scenario: Non admin, non board member fails to delete a committee chair
     When I go to the profile page for "petros@gmail.com"
     And I follow "View Committee Assignments"
     Then I should see /Tech\s+Volunteer/
-    And I should not see /Tech\s+Volunteer[\s,A-Z,a-z]+Delete/
+    And I should not see /Tech\s+Volunteer[\sA-Za-z]+Delete/
 
 
 

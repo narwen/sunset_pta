@@ -23,6 +23,17 @@ class CommitteesController < ApplicationController
     end
   end
 
+  # GET /committees/1
+  # GET /committees/1.xml
+  def show
+    @committee = Committee.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @committee }
+    end
+  end
+
   # GET /committees/new
   # GET /committees/new.xml
   def new

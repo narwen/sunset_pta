@@ -25,7 +25,7 @@ prefork = lambda {
 each_run = lambda {
   # This code will be run each time you run your specs.
   require 'cucumber/rails/world'
-  # require 'email_spec/cucumber'
+  require 'email_spec/cucumber'
 
   # Comment out the next line if you don't want transactions to
   # open/roll back around each scenario
@@ -46,3 +46,5 @@ rescue LoadError
   prefork.call
   each_run.call
 end
+
+require File.expand_path(File.dirname(__FILE__) + '/../../db/fixtures/duties.rb')
