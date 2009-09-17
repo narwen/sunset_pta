@@ -11,7 +11,7 @@
     <td><%= link_to(committee.name, committee_path(committee)) %></td>
     <td>
       <%- committee.chairs.each do |chair| -%>
-        <%= chair.full_name %><br />
+        <%= link_to(chair.full_name, user_path(chair)) %><br />
       <%- end -%>
     </td>
   <%- if can_edit_committees? -%>

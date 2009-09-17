@@ -10,13 +10,13 @@
 
 <% @committee.chairs.each do |chair| %>
   <tr>
-    <td><%= chair.full_name %></td>
+    <td><%= link_to(chair.full_name, user_path(chair)) %></td>
     <td>Chair</td>
   </tr>
 <% end %>
 <% @committee.volunteers.each do |volunteer| %>
   <tr>
-    <td><%= volunteer.full_name %></td>
+    <td><%= link_to(volunteer.full_name, user_path(volunteer)) %></td>
     <td>Volunteer</td>
   </tr>
 <% end %>

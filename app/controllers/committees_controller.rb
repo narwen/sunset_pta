@@ -1,6 +1,6 @@
 class CommitteesController < ApplicationController
 
-  access_control :only => :index do
+  access_control :only => [:index, :show] do
     allow logged_in
   end
 
