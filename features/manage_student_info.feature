@@ -73,7 +73,7 @@ Feature: Manage student info
     And I should see "303"
     And I should see "Joe Joeson"
 
-  Scenario: Add a couple students to another parent as an admin
+  Scenario: Add a couple students to another parent as an board member
     Given I am logged in as "bob@example.com"
     And I have the role "board_member"
     And there is a user "sally@example.com" named "Sally Sallyson"
@@ -157,6 +157,18 @@ Feature: Manage student info
   Scenario: Admin can edit or delete another user's student info
     Given I am logged in as "bob@example.org"
     And I have the role "admin"
+    And there is a user "sally@example.com" named "Sally Sallyson" with student "Student #1"
+    When I go to the users page
+    And I follow "Sally Sallyson"
+    And I follow "View Students"
+    Then I should see "Add Student"
+    And I should see "Student #1"
+    And I should see "Edit"
+    And I should see "Delete"
+
+  Scenario: Board member can edit or delete another user's student info
+    Given I am logged in as "bob@example.org"
+    And I have the role "board_member"
     And there is a user "sally@example.com" named "Sally Sallyson" with student "Student #1"
     When I go to the users page
     And I follow "Sally Sallyson"
