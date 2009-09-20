@@ -6,7 +6,7 @@ Feature: Edit contact info
   Scenario: Fill in all my contact info
     Given I am logged in as "bob@example.com"
     And I am on the homepage
-    When I follow "My contact info"
+    When I go to the profile page for "bob@example.com"
     And I follow "Edit"
     And I fill in the following fields:
       | field      | value                      |

@@ -44,3 +44,10 @@ Given /^there is a user "([^\"]*)" with name "([^\"]*)"$/ do |email, fullname|
       :first_name => name[0],
       :last_name => name[1])
 end
+
+Given /^my name is "([^\"]*)"$/ do |fullname|
+  name = fullname.split(/\s+/)
+  current_user.first_name = name[0]
+  current_user.last_name = name[1]
+  current_user.save
+end

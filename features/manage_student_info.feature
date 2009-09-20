@@ -5,7 +5,7 @@ Feature: Manage student info
 
   Scenario: Add a couple students to a parent
     Given I am logged in as "bob@example.com"
-    When I go to my profile page
+    When I go to the profile page for "bob@example.com"
     And I follow "View Students"
     And I follow "Add Student"
     And I fill in the following fields:
@@ -34,7 +34,7 @@ Feature: Manage student info
     And I should see "5"
     And I should see "303"
     And I should see "Joe Joeson"
-    When I follow "My contact info"
+    When I go to the profile page for "bob@example.com"
     Then I should be on my profile page
 
   Scenario: Add a couple students to another parent as an admin
@@ -112,7 +112,7 @@ Feature: Manage student info
   Scenario: Browse a parent's student list and edit a student's info
     Given I am logged in as "bob@example.com"
     And I am the parent of student "Bobby Bobson"
-    When I go to my profile page
+    When I go to the profile page for "bob@example.com"
     And I follow "View Students"
     Then I should see "Bobby Bobson"
     And I should see "5"
@@ -135,7 +135,7 @@ Feature: Manage student info
   Scenario: Delete a student
     Given I am logged in as "bob@example.com"
     And I am the parent of student "Student #1"
-    When I go to my profile page
+    When I go to the profile page for "bob@example.com"
     And I follow "View Students"
     And I follow "Delete"
     Then I should not see "Student #1"

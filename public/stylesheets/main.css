@@ -54,16 +54,27 @@ div#headerright {
   margin-left: 229px;
 }
 
-div#header h3 {
+div#header p {
   color: #FFFFFF;
 }
 
 /* Navigation / Menu container */
 
 div#nav {
-  background-color: #EEEEEE;
   padding-top: 2px;
   padding-bottom: 2px;
+  width: 800px;
+  background-color: #EEEEEE;
+}
+
+div#navleft {
+  margin-top: -30px;
+  float: left;
+}
+
+div#navright {
+  margin-right: 4px;
+  text-align: right;
 }
 
 div#nav ul {

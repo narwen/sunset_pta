@@ -1,9 +1,8 @@
+<% if current_user != nil %>
 <ul>
-  <li><%= link_to "Home", root_path %></li>
-  <li><%= link_to "Volunteers", users_path %></li>
-  <li><%= link_to "Positions", positions_path %></li>
   <li><%= link_to "Board Members", board_members_path %></li>
   <li><%= link_to "Committees", committees_path %></li>
-  <li><%= link_to "New Position", new_position_path %></li>
-  <li><%= link_to "New Volunteer", new_user_path %></li>
+  <li><%= link_to "Volunteers", users_path %></li>
+  <% if show_positions? %><li><%= link_to "Positions", positions_path %></li><% end %>
 </ul>
+<% end %>

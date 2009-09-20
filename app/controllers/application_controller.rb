@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user_session, :current_user, :access_denied, :require_no_user
+  helper_method :current_user_session, :current_user, :access_denied, :require_no_user, :show_positions?
   filter_parameter_logging :password, :password_confirmation
 
   rescue_from 'Acl9::AccessDenied', :with => :cannot_do_that
@@ -44,5 +44,9 @@ class ApplicationController < ActionController::Base
 
   def store_location
     session[:return_to] = request.request_uri
+  end
+  
+  def show_positions?
+    current_user.has_role?(:admin) or current_user.has_role?(:board_member)    
   end
 end

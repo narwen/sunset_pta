@@ -20,7 +20,7 @@ Scenario: Admin can add a committee chair, which updates corresponding permissio
     And I should see /Xmas\s+Chair/
     When I follow "Logout"
     And I log in as "chris@gmail.com" with password "chrissecret"
-    And I follow "My contact info"
+    And I go to the profile page for "chris@gmail.com"
     Then I should see "chris@gmail.com"
     When I go to the new user page
     Then I should not see "Permission Denied!"
@@ -42,7 +42,7 @@ Scenario: Board member can add a committee chair, which updates corresponding pe
     And I should see /Halloween\s+Chair/
     When I follow "Logout"
     And I log in as "tom@gmail.com" with password "tomsecret"
-    And I follow "My contact info"
+    And I go to the profile page for "tom@gmail.com"
     Then I should see "tom@gmail.com"
     When I go to the new user page
     Then I should not see "Permission Denied!"
@@ -71,7 +71,7 @@ Scenario: Admin can delete a committee chair, which updates corresponding permis
     Then I should not see /Xmas\s+Chair/
     When I follow "Logout"
     And I log in as "chris@gmail.com" with password "chrissecret"
-    And I follow "My contact info"
+    And I go to the profile page for "chris@gmail.com"
     Then I should see "chris@gmail.com"
     When I go to the new user page
     Then I should see "Permission Denied!"
@@ -89,7 +89,7 @@ Scenario: Board member can delete a committee chair, which updates corresponding
     Then I should not see /Halloween\s+Chair/
     When I follow "Logout"
     And I log in as "tom@gmail.com" with password "tomsecret"
-    And I follow "My contact info"
+    And I go to the profile page for "tom@gmail.com"
     Then I should see "tom@gmail.com"
     When I go to the new user page
     Then I should see "Permission Denied!"
@@ -105,6 +105,3 @@ Scenario: Non admin, non board member fails to delete a committee chair
     And I follow "View Committee Assignments"
     Then I should see /Tech\s+Chair/
     And I should not see /Tech\s+Chair[\sA-Za-z]+Delete/
-
-
-
