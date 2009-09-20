@@ -2,7 +2,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :committees, :board_members, :positions
 
-  map.root :controller => 'home'
+  map.root :controller => 'board_members'
   map.login 'login', :controller => "user_sessions", :action => "new"
   map.logout 'logout', :controller => "user_sessions", :action => "destroy"
   map.resource :account, :controller => "users"

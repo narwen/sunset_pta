@@ -9,6 +9,7 @@ Feature: Browse all volunteers
       | Bob        | Bobson    | bob@example.com   |                |
       | Sally      | Sallyson  | sally@example.com | President      |
       | Frank      | Frankson  | frank@example.com | Secretary      |
+    And I am logged in as "jack@example.com"
     And I am on the homepage
     When I follow "Volunteers"
     Then I should see "Bob Bobson"

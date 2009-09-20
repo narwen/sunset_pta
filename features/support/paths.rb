@@ -42,6 +42,12 @@ module NavigationHelpers
 
     when /the new committee page/
       new_committee_path
+      
+    when /the volunteers page/
+      users_path
+      
+    when /the committees page/
+      committees_path
 
     # Add more mappings here.
     # Here is a more fancy example:

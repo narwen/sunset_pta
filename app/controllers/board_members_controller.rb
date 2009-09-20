@@ -1,5 +1,5 @@
 class BoardMembersController < UsersController
-
+  
   access_control :only => :new, :helper => :show_new_link? do
     allow :admin
   end

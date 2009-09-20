@@ -159,6 +159,28 @@ ul, ol{
   margin-bottom: 8px;
 }
 
+.flash_warning {
+  border-style: solid;
+  border-width: 2px;
+  font-weight: bold;
+  padding: 6px;
+  border-color: #FFBB73;
+  color: #FFFFFF;
+  background-color: #FF9F40;
+  margin-bottom: 8px;
+}
+
+.flash_error {
+  border-style: solid;
+  border-width: 2px;
+  font-weight: bold;
+  padding: 6px;
+  border-color: #FD0006;
+  color: #FFFFFF;
+  background-color: #A40004;
+  margin-bottom: 8px;
+}
+
 /******************************************************** Taken from scaffold */
 
 body, p, ol, ul, td {

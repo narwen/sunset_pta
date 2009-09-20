@@ -16,7 +16,10 @@ When /^I log in as "([^\"]*)" with password "([^\"]*)"$/ do |email, password|
 end
 
 Then /^I log out$/ do
-  open '/'
+  #visit path_to("the homepage")
   click_link('logout')
 end
 
+Given /^I am not logged in$/ do
+  current_user = nil
+end

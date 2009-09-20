@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   before_filter :fetch_user, :only => [:show, :edit, :update]
 
+  access_control :only => :index do
+    allow logged_in
+  end
+
   access_control :only => :new do
     allow :admin, :board_member
   end
