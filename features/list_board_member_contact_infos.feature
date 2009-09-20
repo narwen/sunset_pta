@@ -9,6 +9,7 @@ Feature: List board members with contact info
       | Bob        | Bobson    | bob@example.com   | President      |
       | Sally      | Sallyson  | sally@example.com | Treasurer      |
       | Frank      | Frankson  | frank@example.com |                |
+    And I am logged in as "jack@example.com"
     And I am on the homepage
     When I follow "Board Members"
     Then I should see "Bob Bobson"

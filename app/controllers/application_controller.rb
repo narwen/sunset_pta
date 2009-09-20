@@ -23,7 +23,18 @@ rescue_from 'Acl9::AccessDenied', :with => :cannot_do_that
   
   def cannot_do_that
     flash[:notice] = "Permission Denied!"
-    redirect_to root_path
+    redirect_to login_url
   end
-  
+
+  def require_user
+    unless current_user
+      store_location
+      redirect_to login_url
+      return false
+    end
+  end
+
+  def store_location
+    session[:return_to] = request.request_uri
+  end
 end

@@ -14,3 +14,7 @@ When /^I log in as "([^\"]*)" with password "([^\"]*)"$/ do |email, password|
   And %(I press "Login")
   current_user.should_not be_nil
 end
+
+Given /^I am not logged in$/ do
+  current_user = nil
+end
