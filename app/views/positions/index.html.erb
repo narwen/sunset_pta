@@ -1,12 +1,29 @@
 <% if @positions.size == 0 %>
-  There are no positions
+There are no positions
 <% else %>
-  <% @positions.each do |position| %>
-    <br />
-    <%= position.title %>
-    <% if current_user.has_role? :admin %>
-      <%= link_to "Delete #{position.title}", position, :method => :delete %>
-      <%= link_to "Edit #{position.title}", edit_position_path(position) %>
-    <% end %>
+<ul id="positions-list" style="cursor: move;">
+  <% @positions.each do |p| %>
+  <li id="position_<%= p.id %>">
+    <%= p.title %>
+  </li>
   <% end %>
+</ul>
+<%= sortable_element "positions-list", :url => {:action => "sort", :id => @positions}, :complete => visual_effect(:highlight, "positions-list") %>
+<br /><br />
+<table>
+  <% @positions.each do |position| %>
+  <tr>
+    <td><%= position.title %></td>
+    <td><%= position.position %>
+
+    </td>
+    <td>
+      <% if current_user.has_role? :admin %>
+      <%= link_to "Delete", position, :method => :delete %>
+      <%= link_to "Edit", edit_position_path(position) %>
+      <% end %>
+    </td>
+  </tr>
+  <% end %>
+</table>
 <% end %>

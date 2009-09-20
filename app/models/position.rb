@@ -1,7 +1,8 @@
 class Position < ActiveRecord::Base
   validates_uniqueness_of :title
   acts_as_authorization_object
-
+  acts_as_list
+  default_scope :order => :position
   has_one :user
 
   def demote_others(new_holder)
@@ -9,4 +10,5 @@ class Position < ActiveRecord::Base
       holder.update_attribute(:position_id, nil) if holder != new_holder
     end
   end
+
 end

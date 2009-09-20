@@ -1,3 +1,4 @@
+@focus
 Feature: Only admin can edit positions
   In order to keep a record of who is in which position
   As an administrator
@@ -31,7 +32,7 @@ Feature: Only admin can edit positions
     And I have the role "admin"
     And there is a position "Secretary"
     And I go to the positions page
-    When I follow "Delete Secretary" 
+    When I follow "Delete" 
     Then I should not see "Secretary"
     
   Scenario: Non Admin fails to delete a position
@@ -39,28 +40,28 @@ Feature: Only admin can edit positions
     And I do not have the role "admin"
     And there is a position "Secretary"
     And I go to the positions page
-    Then I should not see "Delete Secretary"
+    Then I should not see "Delete"
 
   Scenario: Admin sees link to edit a position
     Given I am logged in as "bob@example.com"
     And I have the role "admin"
     And there is a position "Secretary"
     When I go to the positions page
-    Then I should see "Edit Secretary"
+    Then I should see "Edit"
 
   Scenario: Non admin does not see link to edit a position
     Given I am logged in as "bob@example.com"
     And I do not have the role "admin"
     And there is a position "Secretary"
     When I go to the positions page
-    Then I should not see "Edit Secretary"
+    Then I should not see "Edit"
 
   Scenario: Admin updates a position
     Given I am logged in as "bob@example.com"
     And I have the role "admin"
     And there is a position "Secretary"
     And I am on the positions page
-    And I follow "Edit Secretary"
+    And I follow "Edit"
     And I see "Now editing position Secretary"
     And I fill in "title" with "Comptroller General"
     And I press "Update Position"

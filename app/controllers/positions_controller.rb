@@ -1,12 +1,12 @@
 class PositionsController < ApplicationController
 
-  access_control do  
+  access_control do
     allow :admin
     allow logged_in, :to => :index
   end
 
   def index
-    @positions = Position.all
+    @positions = Position.all#(:order => :position)
   end
 
   def show
@@ -51,5 +51,14 @@ class PositionsController < ApplicationController
     redirect_to(positions_url)
   end
 
+
+  def sort
+    @positions = Position.all
+    @positions.each do | p |
+      p.position = params["positions-list"].index(p.id.to_s)+1
+      p.save
+    end
+    render :nothing => true
+  end
 
 end

@@ -3,7 +3,6 @@ Feature: Authorized user invites inactive user (volunteer) to become active user
   As an authorized user
   I want to invite volunteers to become active users
 
-@focus
   Scenario Outline: Admin invites an inactive user to become active
     Given I am logged in as "bob@example.com"
     And I have the role "<role>"

@@ -1,6 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
 
-  map.resources :committees, :board_members, :positions
+  map.resources :committees, :board_members
+  map.resources :positions, :collection => 'sort'
 
   map.root :controller => 'board_members'
   map.login 'login', :controller => "user_sessions", :action => "new"

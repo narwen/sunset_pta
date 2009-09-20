@@ -1,4 +1,4 @@
-// Copyright (c) 2005-2008 Thomas Fuchs (http://script.aculo.us, http://mir.aculo.us)
+// Copyright (c) 2005-2009 Thomas Fuchs (http://script.aculo.us, http://mir.aculo.us)
 // Contributors:
 //  Justin Palmer (http://encytemedia.com/)
 //  Mark Pilgrim (http://diveintomark.org/)
@@ -228,12 +228,6 @@ Effect.Queue = Effect.Queues.get('global');
 Effect.Base = Class.create({
   position: null,
   start: function(options) {
-    function codeForEvent(options,eventName){
-      return (
-        (options[eventName+'Internal'] ? 'this.options.'+eventName+'Internal(this);' : '') +
-        (options[eventName] ? 'this.options.'+eventName+'(this);' : '')
-      );
-    }
     if (options && options.transition === false) options.transition = Effect.Transitions.linear;
     this.options      = Object.extend(Object.extend({ },Effect.DefaultOptions), options || { });
     this.currentFrame = 0;
