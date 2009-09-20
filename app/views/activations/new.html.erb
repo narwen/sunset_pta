@@ -1,6 +1,15 @@
 <h1>Activate your account by clicking the link below:</h1>
 
- <% form_for @user, :url => activate_path(@user.id), :html => { :method => :post } do |f| %>
- 	<%= f.error_messages %>
- 	<%= f.submit "Activate Now" %>
- <% end %>
+<% form_for @user, :url => activate_path(@user.id), :html => { :method => :post } do |f| %>
+<%= f.error_messages %>
+Please enter a secure password:<br />
+<p>
+  <%= label_tag :password %><br />
+  <%= password_field_tag :password %>
+</p>
+<p>
+  <%= label_tag :password_confirmation %><br /> 	  
+  <%= password_field_tag :password_confirmation %>
+</p>
+<%= f.submit "Activate Now" %>
+<% end %>

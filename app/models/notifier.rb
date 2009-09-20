@@ -17,7 +17,6 @@ class Notifier < ActionMailer::Base
     recipients    user.email
     sent_on       Time.now
     body          :root_url => root_url
-    body          :user => user
   end
 
 end

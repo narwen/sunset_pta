@@ -7,11 +7,6 @@
 <body>
   <b>You've been invited to the Sunset PTA!</b>
   <br/><br/>
-  <blockquote>
-    Name: <%#= @user.full_name %><br />
-    Email: <%#= @user.email %><br />
-  </blockquote>
-  <br />
   Please click on the link below to complete your sign up process.<br />
   <%= link_to 'Activate!', @account_activation_url %><br />
   <br/>

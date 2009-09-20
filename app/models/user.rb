@@ -5,7 +5,10 @@ class User < ActiveRecord::Base
   merge_validates_length_of_email_field_options({:allow_blank => true})
   merge_validates_format_of_email_field_options({:allow_blank => true})
 
-  acts_as_authentic
+  acts_as_authentic do |config|
+    config.ignore_blank_passwords = false
+  end
+  
   acts_as_authorization_subject
 
   validates_presence_of :first_name, :last_name
@@ -27,8 +30,10 @@ class User < ActiveRecord::Base
     first_name + ' ' + last_name
   end
 
-  def activate!
+  def activate!(password, password_confirmation)
     self.active = true
+    self.password = password
+    self.password_confirmation = password_confirmation
     save
   end
 
