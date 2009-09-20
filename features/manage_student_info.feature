@@ -18,7 +18,7 @@ Feature: Manage student info
     Then I should see "Student created successfully!"
     And I should see "Sally Bobson"
     When I follow "Add Student"
-    When I fill in the following fields:
+    And I fill in the following fields:
       | field   | value        |
       | Name    | Bobby Bobson |
       | Grade   | 5            |

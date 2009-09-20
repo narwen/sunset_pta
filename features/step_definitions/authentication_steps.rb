@@ -14,3 +14,9 @@ When /^I log in as "([^\"]*)" with password "([^\"]*)"$/ do |email, password|
   And %(I press "Login")
   current_user.should_not be_nil
 end
+
+Then /^I log out$/ do
+  open '/'
+  click_link('logout')
+end
+

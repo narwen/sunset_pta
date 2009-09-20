@@ -13,8 +13,10 @@ class ActivationsController < ApplicationController
 
     if @user.activate!
       @user.deliver_activation_confirmation!
-      redirect_to account_url
+      flash[:notice] = "Activation successful."
+      redirect_to root_path
     else
+      flash[:notice] = "There was a problem."
       render :action => :new
     end
   end

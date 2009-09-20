@@ -1,25 +1,22 @@
+@focus
 Feature: Authorized user can create a volunteer
   In order to track volunteers
   As an authorized user
   I want to add volunteers to the system
 
-  Scenario: Admin creates a volunteer
+  Scenario Outline: Aurhorized user creates a volunteer
     Given I am logged in as "bob@example.com"
-    And I have the role "admin"
+    And I have the role "<role>"
     And I am on the new user page
     When I fill in "first name" with "Rebecca"
     And I fill in "last name" with "Wong"
     And I press "Create Volunteer"
     Then I should see "New volunteer Rebecca Wong created."
-
-  Scenario: Board Member creates a volunteer
-    Given I am logged in as "bob@example.com"
-    And I have the role "board_member"
-    And I am on the new user page
-    When I fill in "first name" with "Rebecca"
-    And I fill in "last name" with "Wong"
-    And I press "Create Volunteer"
-    Then I should see "New volunteer Rebecca Wong created."
+  
+      Scenarios:
+        | role         |
+        | admin        |
+        | board_member |
   
   Scenario: Non-authorized user fails to create a volunteer
     Given I am logged in as "bob@example.com"
@@ -28,9 +25,9 @@ Feature: Authorized user can create a volunteer
     And I go to the new user page
     Then I should see "Permission Denied!"
     
-  Scenario: Authorized user fails to create volunteer with an email that's already in use
+  Scenario Outline: Authorized user fails to create volunteer with an email that's already in use
     Given I am logged in as "bob@example.com"
-    And I have the role "board_member"
+    And I have the role "<role>"
     And I am on the new user page
     And there is a user "becky@gmail.com"
     When I fill in "first name" with "Rebecca"
@@ -38,7 +35,14 @@ Feature: Authorized user can create a volunteer
     And I fill in "email" with "becky@gmail.com"
     And I press "Create Volunteer"
     Then I should see "Email has already been taken"
-    When I fill in "email" with ""
+    When I fill in "email" with "<email alternative>"
     And I press "Create Volunteer"
     Then I should not see "Email has already been taken"
     And I should see "New volunteer Rebecca Wong created."
+
+      Scenarios:
+        | role         | email alternative               |
+        | admin        |                                 |
+        | board_member |                                 |
+        | admin        | something_unlikely@gototown.com |
+        | board_member | something_unlikely@gototown.com |

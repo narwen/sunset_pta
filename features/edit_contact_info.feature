@@ -8,14 +8,14 @@ Feature: Edit contact info
     And I am on the homepage
     When I follow "My contact info"
     And I follow "Edit"
-      And I fill in the following fields:
-      | field         | value                       |
-      | First Name    | Bob                         |
-      | Last Name     | Bobson                      |
-      | Email         | bobs.new.email@example.com  |
-      | Address       | 3333 Example St             |
-      | Home Phone    | 222-333-4444                |
-      | Cell Phone    | 444-555-6666                |
+    And I fill in the following fields:
+      | field      | value                      |
+      | First Name | Bob                        |
+      | Last Name  | Bobson                     |
+      | Email      | bobs.new.email@example.com |
+      | Address    | 3333 Example St            |
+      | Home Phone | 222-333-4444               |
+      | Cell Phone | 444-555-6666               |
     And I press "Save"
     Then I should see "User updated successfully"
     And I should see "Bob Bobson"
@@ -45,3 +45,4 @@ Feature: Edit contact info
     And there is a user "sally@example.com"
     When I go to the profile page for "sally@example.com"
     Then I should not see "Edit"
+    

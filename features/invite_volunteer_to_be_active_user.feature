@@ -1,33 +1,38 @@
-Feature: Authorized user invites volunteer to become active user
+Feature: Authorized user invites inactive user (volunteer) to become active user
   In order to add users
   As an authorized user
   I want to invite volunteers to become active users
-# @focus
-#   Scenario: Admin invites a volunteer
-#     Given I am logged in as "bob@example.com"
-#     And I have the role "admin"
-#     And there is a user "becky@gmail.com"
-#     And "becky@gmail.com" is inactive
-#     When I am on the profile page for "becky@gmail.com"
-#     Then I should see "Send Email Invitation"
-#     When I follow "Send Email Invitation"
-#     Then I should see "Invitation sent."
-#     And "becky@gmail.com" should receive 1 email
-#     When "becky@gmail.com" opens the email
-#     Then they should see "You've been invited" in the email body
-#     When they follow "Click here to activate your account!" in the email
-  # 
-  # Scenario: Board Member invites a volunteer
-  #   Given I am logged in as "bob@example.com"
-  #   And I have the role "board_member"
-  #   And there is a non-user volunteer with first name "Becky"
-  #   And I am on the profile page for volunteer with first name "Becky"
-  #   Then I should see "Send Email Invitation"
-  #   
-  # Scenario: Non-authorized user fails to invite a volunteer
-  #   Given I am logged in as "bob@example.com"
-  #   And I do not have the role "admin"
-  #   And I do not have the role "board_member"
-  #   And there is a non-user volunteer with first name "Becky"
-  #   And I am on the profile page for volunteer with first name "Becky"
-  #   Then I should not see "Send Email Invitation"
+
+  Scenario Outline: Admin invites an inactive user to become active
+    Given I am logged in as "bob@example.com"
+    And I have the role "<role>"
+    And there is a user "becky@gmail.com"
+    And "becky@gmail.com" is inactive
+    When I am on the profile page for "becky@gmail.com"
+    Then I should see "Send Email Invitation"
+    When I follow "Send Email Invitation"
+    Then I should see "Invitation sent."
+    And "becky@gmail.com" should receive 1 email
+    Then I log out
+    When "becky@gmail.com" opens the email with subject "You've been invited"
+    And they follow "Activate!" in the email
+    Then I should see "Activate your account"
+    When I press "Activate Now"
+    Then I should see "Activation successful."
+    And they should receive an email
+    When they open the email with subject "Activation Complete"
+    Then they should see "Your account has been activated" in the email body
+    
+      Examples:
+      | role         |
+      | admin        |
+      | board_member |
+
+  Scenario: Non-authorized user fails to invite a volunteer
+    Given I am logged in as "bob@example.com"
+    And I do not have the role "admin"
+    And I do not have the role "board_member"
+    And there is a user "becky@gmail.com"
+    And "becky@gmail.com" is inactive
+    When I am on the profile page for "becky@gmail.com"
+    Then I should not see "Send Email Invitation"

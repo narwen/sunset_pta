@@ -1,29 +1,36 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user_session, :current_user, :access_denied
+  helper_method :current_user_session, :current_user, :access_denied, :require_no_user
   filter_parameter_logging :password, :password_confirmation
 
-rescue_from 'Acl9::AccessDenied', :with => :cannot_do_that
+  rescue_from 'Acl9::AccessDenied', :with => :cannot_do_that
 
   private
 
-  def access_denied
-    flash[:notice] = "You do not have permission to do that"
-    redirect_to root_path
-  end
+    def access_denied
+      flash[:notice] = "You do not have permission to do that"
+      redirect_to root_path
+    end
 
-  def current_user_session
-    return @current_user_session if defined?(@current_user_session)
-    @current_user_session = UserSession.find
-  end
+    def current_user_session
+      return @current_user_session if defined?(@current_user_session)
+      @current_user_session = UserSession.find
+    end
 
-  def current_user
-    return @current_user if defined?(@current_user)
-    @current_user = current_user_session && current_user_session.record
-  end
-  
-  def cannot_do_that
-    flash[:notice] = "Permission Denied!"
-    redirect_to root_path
-  end
-  
+    def current_user
+      return @current_user if defined?(@current_user)
+      @current_user = current_user_session && current_user_session.record
+    end
+
+    def cannot_do_that
+      flash[:notice] = "Permission Denied!"
+      redirect_to root_path
+    end
+
+    def require_no_user
+      if current_user
+        flash[:notice] = "You must be logged out to access this page."
+        redirect_to root_url
+        return false
+      end
+    end
 end
