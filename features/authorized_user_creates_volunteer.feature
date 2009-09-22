@@ -22,7 +22,7 @@ Feature: Authorized user can create a volunteer
     And I do not have the role "admin"
     And I do not have the role "board_member"
     And I go to the new user page
-    Then I should see "Permission Denied!"
+    Then I should see "Please login for restricted access."
     
   Scenario Outline: Authorized user fails to create volunteer with an email that's already in use
     Given I am logged in as "bob@example.com"

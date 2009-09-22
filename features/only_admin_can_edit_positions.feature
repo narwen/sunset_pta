@@ -15,7 +15,7 @@ Feature: Only admin can edit positions
     Given I am logged in as "bob@example.com"
     And I do not have the role "admin"
     And I go to the new position page
-    Then I should see "Permission Denied!"
+    Then I should see "Please login for restricted access."
   
   Scenario: Admin fails to add existing position
     Given I am logged in as "bob@example.com"

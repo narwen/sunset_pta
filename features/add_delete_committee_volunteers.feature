@@ -41,7 +41,7 @@ Scenario: Board member can add a committee volunteer
     And I follow "View Committee Assignments"
     Then I should not see "Add Committee Assignment"
     And I go to the new user assignment page for "petros@gmail.com"
-    Then I should see "Permission Denied!"
+    Then I should see "Please login for restricted access."
 
 Scenario: Admin can delete a committee volunteer
     Given I am logged in as "admin@sunset-pta.com"

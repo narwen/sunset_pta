@@ -17,7 +17,7 @@ Feature: Only admins can add/delete committees
     Given I am logged in as "grace@gmail.com"
     And I do not have the role "admin"
     When I go to the new committee page
-    Then I should see "Permission Denied!"
+    Then I should see "Please login for restricted access."
     
   Scenario: Admin can delete a committee
     Given I am logged in as "admin@sunset-pta.com"

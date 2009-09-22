@@ -22,7 +22,6 @@ class ApplicationController < ActionController::Base
   end
 
   def cannot_do_that
-    flash[:notice] = "Permission Denied!"
     redirect_to login_url
   end
 

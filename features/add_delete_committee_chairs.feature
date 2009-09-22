@@ -23,7 +23,7 @@ Scenario: Admin can add a committee chair, which updates corresponding permissio
     And I go to the profile page for "chris@gmail.com"
     Then I should see "chris@gmail.com"
     When I go to the new user page
-    Then I should not see "Permission Denied!"
+    Then I should not see "Please login for restricted access."
 
 Scenario: Board member can add a committee chair, which updates corresponding permissions
     Given I am logged in as "sarah@sunset-pta.com"
@@ -45,7 +45,7 @@ Scenario: Board member can add a committee chair, which updates corresponding pe
     And I go to the profile page for "tom@gmail.com"
     Then I should see "tom@gmail.com"
     When I go to the new user page
-    Then I should not see "Permission Denied!"
+    Then I should not see "Please login for restricted access."
 
 Scenario: Non admin, non board member fails to add a committee chair
     Given I am logged in as "rupak@sunset-pta.com"
@@ -56,7 +56,7 @@ Scenario: Non admin, non board member fails to add a committee chair
     And I follow "View Committee Assignments"
     Then I should not see "Add Committee Assignment"
     And I go to the new user assignment page for "petros@gmail.com"
-    Then I should see "Permission Denied!"
+    Then I should see "Please login for restricted access."
 
 Scenario: Admin can delete a committee chair, which updates corresponding permissions
     Given I am logged in as "admin@sunset-pta.com"
@@ -74,7 +74,7 @@ Scenario: Admin can delete a committee chair, which updates corresponding permis
     And I go to the profile page for "chris@gmail.com"
     Then I should see "chris@gmail.com"
     When I go to the new user page
-    Then I should see "Permission Denied!"
+    Then I should see "Please login for restricted access."
 
 Scenario: Board member can delete a committee chair, which updates corresponding permissions
     Given I am logged in as "sarah@sunset-pta.com"
@@ -92,7 +92,7 @@ Scenario: Board member can delete a committee chair, which updates corresponding
     And I go to the profile page for "tom@gmail.com"
     Then I should see "tom@gmail.com"
     When I go to the new user page
-    Then I should see "Permission Denied!"
+    Then I should see "Please login for restricted access."
 
 Scenario: Non admin, non board member fails to delete a committee chair
     Given I am logged in as "rupak@sunset-pta.com"

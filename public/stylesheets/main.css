@@ -242,3 +242,16 @@ pre {
   font-size: 12px;
   list-style: square;
 }
+
+/******************************************* Informational and other messages */
+
+.info-paragraph {
+  border-style: dotted;
+  border-width: 1px;
+  font-style: italic;
+  padding: 6px;
+  border-color: #AAAAAA;
+  color: #444444;
+  background-color: #CCCCCC;
+  margin-bottom: 10px;
+}
