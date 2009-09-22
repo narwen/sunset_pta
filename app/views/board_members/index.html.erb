@@ -43,7 +43,7 @@
     <td><%= link_to(chair.full_name, board_member_path(chair)) %></td>
 	<% 	
 		@commnames = ''
-		chair.committees.each do |comm| 
+		chair.chaired_committees.each do |comm|
 			@commnames << comm.name + ", "
 		end
 		@commnames[/, $/] = ''
