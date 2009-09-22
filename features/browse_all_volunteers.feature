@@ -20,3 +20,13 @@ Feature: Browse all volunteers
     When I follow "Frank Frankson"
     Then I should be on the profile page for "frank@example.com"
 
+    Scenario: User can see which volunteers are admins
+      Given the following users exist:
+          | first_name | last_name | role_name |
+          | Bob        | Bobson    |           |
+          | Sally      | Sallyson  | admin     |
+      And I am logged in as "frank@example.com"
+      And I am on the homepage
+      When I follow "Volunteers"
+      Then I should see that "Sally Sallyson" is an admin
+      And I should see that "Bob Bobson" is not an admin

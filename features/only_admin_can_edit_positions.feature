@@ -7,8 +7,9 @@ Feature: Only admin can edit positions
   Scenario: Admin adds a position
     Given I am logged in as "bob@example.com"
     And I have the role "admin"
-    And I am on the new position page
-    When I fill in "title" with "Secretary"
+    And I am on the positions page
+    When I follow "New Position"
+    And I fill in "title" with "Secretary"
     And I press "Create"
     Then I should see "Position Secretary Added Successfully"
 

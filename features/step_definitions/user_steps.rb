@@ -16,12 +16,18 @@ end
 
 Given /^the following users exist:$/ do |table|
   table.hashes.each do |hash|
-    if position_title = hash['position_title']
+    hash = hash.dup
+    if position_title = hash.delete('position_title')
       position = Factory(:position, :title => position_title)
       hash = hash.merge(:position_id => position.id)
     end
 
-    Factory(:user, hash.reject { |k,v| k.to_s == 'position_title' })
+    if role_name = hash.delete('role_name')
+      role = Role.find_or_create_by_name(role_name)
+      hash = hash.merge(:role_ids => [role.id])
+    end
+
+    Factory(:user, hash)
   end
 end
 
