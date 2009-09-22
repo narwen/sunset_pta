@@ -52,7 +52,7 @@ class User < ActiveRecord::Base
   end
 
   def User.unique_chairs
-    chair_assignments = Assignment.find(:all, :conditions => [ "duty_id = ?", Duty.find_by_name("Chair").id], :group => "user_id, assignments.id")
+    chair_assignments = Assignment.find(:all, :conditions => [ "duty_id = ?", Duty.find_by_name("Chair").id], :group => "user_id, assignments.id, assignments.committee_id")
     uchairs = []
     if (!chair_assignments.empty?) then
       uchairs = chair_assignments.inject([User.find(chair_assignments[0].user_id)]) do | uchairs, chair_assignment|
