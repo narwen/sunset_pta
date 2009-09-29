@@ -18,7 +18,7 @@ class BoardMembersController < UsersController
     # first get all the board members that have a position
     @board_members = User.all(:joins => :position, :order => :position)
     # then get all the board members that are chairs. Chairs may not have positions.
-    @chairs = User.unique_chairs
+    @chairs = User.all(:joins => :assignments, :conditions => 'assignments.duty_id = 2', :group => :user_id)
     
     respond_to do |format|
       format.html # index.html.erb
