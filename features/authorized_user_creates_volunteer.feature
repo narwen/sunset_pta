@@ -45,3 +45,13 @@ Feature: Authorized user can create a volunteer
         | board_member |                                 |
         | admin        | something_unlikely@gototown.com |
         | board_member | something_unlikely@gototown.com |
+
+    Scenario: Non-admin board member adds a volunteer
+      Given I am logged in as "bob@example.com"
+      And I have the role "board_member"
+      And I do not have the role "admin"
+      And I am on the new user page
+      When I fill in "first name" with "Rebecca"
+      And I fill in "last name" with "Wong"
+      And I press "Create Volunteer"
+      Then I should see "New volunteer Rebecca Wong created."
