@@ -255,3 +255,9 @@ pre {
   background-color: #CCCCCC;
   margin-bottom: 10px;
 }
+td, th {
+  padding: 7px;
+}
+td.check{
+  text-align: center;
+}
