@@ -46,6 +46,6 @@ class ApplicationController < ActionController::Base
   end
   
   def show_positions?
-    current_user.has_role?(:admin) or current_user.has_role?(:board_member)    
+    current_user.has_role?(:admin)
   end
 end

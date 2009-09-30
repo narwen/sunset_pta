@@ -2,7 +2,6 @@ class PositionsController < ApplicationController
 
   access_control do
     allow :admin
-    allow logged_in, :to => :index
   end
 
   def index
