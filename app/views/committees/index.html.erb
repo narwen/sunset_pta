@@ -10,9 +10,11 @@
   <tr>
     <td><%= link_to(committee.name, committee_path(committee)) %></td>
     <td>
+      <% chair_arr = [] %>
       <%- committee.chairs.each do |chair| -%>
-        <%= link_to(chair.full_name, user_path(chair)) %><br />
+        <% chair_arr << link_to(chair.full_name, user_path(chair)) %>
       <%- end -%>
+      <%= chair_arr.join(", ") %>
     </td>
   <%- if can_edit_committees? -%>
     <td><%= link_to 'Edit', edit_committee_path(committee) %></td>
