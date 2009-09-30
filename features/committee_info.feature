@@ -2,7 +2,7 @@ Feature: Everyone can view committee info
   In order to contact committee volunteers
   As a volunteer
   I want to view committee info
-
+@focus
 Scenario: Committee list shows chair(s) for each committee
     Given I am logged in as "anybody@sunset-pta.com"
     And there is a committee "Publicity"
@@ -14,7 +14,7 @@ Scenario: Committee list shows chair(s) for each committee
     And "sarah@gmail.com" is assigned to "Publicity" as "Chair"
     When I follow "Committees"
     Then I should see /Publicity[\sA-za-z]+Liah Hansen/
-    And I should see /Publicity[\sA-za-z]+Sarah Allen/
+    And I should see /Publicity[\sA-za-z,]+Sarah Allen/
     And I should not see /Publicity[\sA-za-z]+Chris Lerum/
 
  Scenario: Committee info page shows chair(s) and then volunteers for each committee

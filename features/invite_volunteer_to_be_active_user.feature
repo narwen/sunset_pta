@@ -1,4 +1,3 @@
-@focus
 Feature: Authorized user invites inactive user (volunteer) to become active user
   In order to add users
   As an authorized user
