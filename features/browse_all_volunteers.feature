@@ -19,7 +19,7 @@ Feature: Browse all volunteers
     And I should see "Secretary"
     When I follow "Frank Frankson"
     Then I should be on the profile page for "frank@example.com"
-@focus
+
     Scenario: User can see which volunteers are admins
       Given the following users exist:
           | first_name | last_name | role_name |

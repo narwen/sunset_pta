@@ -2,7 +2,7 @@ Feature: Everyone can view committee info
   In order to contact committee volunteers
   As a volunteer
   I want to view committee info
-@focus
+
 Scenario: Committee list shows chair(s) for each committee
     Given I am logged in as "anybody@sunset-pta.com"
     And there is a committee "Publicity"

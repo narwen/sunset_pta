@@ -1,64 +1,60 @@
 <h1>Sunset PTA Board Members</h1>
-
 <br/>
 <br/>
 <table cellspacing="5">
   <tr>
-  	<td colspan="4"><h3>Board Members</h3></td>
+    <td colspan="4"><h3>Board Members</h3></td>
   </tr>
   <tr align="left">
     <th>Name</th>
     <th>Position</th>
     <th>Email</th>
-	<th></th>
+    <th>Cell Phone</th>
+    <th>Home Phone</th>
+    <th></th>
   </tr>
-
-<%- @board_members.each do |board_member| -%>
+  <%- @board_members.each do |board_member| -%>
   <tr>
     <td><%= link_to(board_member.full_name, board_member_path(board_member)) %></td>
     <td><%= board_member.position.try(:title) %></td>
     <td><%= board_member.email %></td>
-	<td></td>
+    <td><%= board_member.cell_phone %></td>
+    <td><%= board_member.home_phone %></td>
+    <td></td>
     <% if show_editdel_link? %>
-      <td><%= link_to "Edit", edit_board_member_path(board_member) %></td>
+    <td><%= link_to "Edit", edit_board_member_path(board_member) %></td>
     <% end %>
   </tr>
-<%- end -%>
+  <%- end -%>
 </table>
 <br/>
 <br/>
 <table cellspacing="5">
   <tr>
-  	<td colspan="4"><h3>Committee Chairs</h3></td>
+    <td colspan="4"><h3>Committee Chairs</h3></td>
   </tr>
   <tr align="left">
     <th>Name</th>
-	<th>Committee(s)</th>
+    <th>Committee(s)</th>
     <th>Email</th>
-	<th></th>
+    <th>Cell Phone</th>
+    <th>Home Phone</th>
+    <th></th>
   </tr>
-  
-<%- @chairs.each do |chair| -%>
+  <%- @chairs.each do |chair| -%>
   <tr>
     <td><%= link_to(chair.full_name, board_member_path(chair)) %></td>
-	<% 	
-		@commnames = ''
-		chair.chaired_committees.each do |comm|
-			@commnames << comm.name + ", "
-		end
-		@commnames[/, $/] = ''
-	%>
-	<td><%= @commnames %></td>
+    <td><%= chair.committees.each.map(&:name).join(", ") %></td>
     <td><%= chair.email %></td>
+    <td><%= chair.cell_phone %></td>
+    <td><%= chair.home_phone %></td>
     <% if show_editdel_link? %>
-      <td><%= link_to "Edit", edit_board_member_path(chair) %></td>
+    <td><%= link_to "Edit", edit_board_member_path(chair) %></td>
     <% end %>
   </tr>
-<%- end -%>
+  <%- end -%>
 </table>
-
 <br />
 <% if show_new_link? %>
-  <%= link_to 'New Board Member', new_board_member_path %>
+<%= link_to 'New Board Member', new_board_member_path %>
 <% end %>
-
