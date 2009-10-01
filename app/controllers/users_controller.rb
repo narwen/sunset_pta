@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :require_user, :only => [:show, :edit, :update]
   before_filter :fetch_user, :only => [:show, :edit, :update]
 
   access_control :only => :index do
