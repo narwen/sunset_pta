@@ -5,8 +5,9 @@ Then /^I should see that "([^\"]*)" is an admin$/ do |user_name|
   #   row.should have_selector('td', :content => 'X')
   # end
   response.should have_selector("tr:contains(\"#{user_name}\") > td", :content => 'X')
+  (chris) i set this to pending since I don't know how to test for an image being the content of something :)
 =end
-  # (chris) i set this to pending since I don't know how to test for an image being the content of something :)
+
   pending
 end
 
