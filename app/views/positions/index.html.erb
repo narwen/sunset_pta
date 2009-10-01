@@ -20,7 +20,7 @@ There are no positions
     <td>
       <% if current_user.has_role? :admin %>
       <%= link_to "Delete", position, :method => :delete %>
-      <%= link_to "Edit", edit_position_path(position) %>
+      <%= link_to "Rename", edit_position_path(position) %>
       <% end %>
     </td>
   </tr>
