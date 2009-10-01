@@ -1,9 +1,5 @@
 class BoardMembersController < UsersController
-  
-  access_control :only => :new, :helper => :show_new_link? do
-    allow :admin
-  end
-  
+    
   access_control :only => [:update, :edit] do
     allow :admin
     allow logged_in, :if => :same_user?

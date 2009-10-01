@@ -42,14 +42,14 @@ Feature: Only admin can edit positions
     And I go to the positions page
     Then I should not see "Delete"
 
-  Scenario: Admin sees link to edit a position
+  Scenario: Admin sees link to rename a position
     Given I am logged in as "bob@example.com"
     And I have the role "admin"
     And there is a position "Secretary"
     When I go to the positions page
-    Then I should see "Edit"
+    Then I should see "Rename"
 
-  Scenario: Non admin does not see link to edit a position
+  Scenario: Non admin does not see link to rename a position
     Given I am logged in as "bob@example.com"
     And I do not have the role "admin"
     And there is a position "Secretary"
@@ -61,7 +61,7 @@ Feature: Only admin can edit positions
     And I have the role "admin"
     And there is a position "Secretary"
     And I am on the positions page
-    And I follow "Edit"
+    And I follow "Rename"
     And I see "Now editing position Secretary"
     And I fill in "title" with "Comptroller General"
     And I press "Update Position"
