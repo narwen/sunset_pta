@@ -11,44 +11,43 @@ module NavigationHelpers
     when /the homepage/
       '/'
     when /the board members list page/
-      board_members_path
-    
-    when /the login page/
-      '/login'
-      
-    when /the new position page/
-      '/positions/new'  
-      
-    when /the positions page/
-      '/positions'
+          board_members_path
 
-    when /my profile page/
-      user_path(current_user)
+        when /the login page/
+          '/login'
 
-    when /the profile page for "([^\"]*)"/
-      user_path(User.find_by_email($1))
+        when /the new position page/
+          '/positions/new'
 
-    when /the profile page for volunteer with first name "([^\"]*)"/
-      user_path(User.find_by_first_name($1))
+        when /the positions page/
+          '/positions'
 
-    when /the new user page/
-      new_user_path
-      
-    when /the users page/
-      users_path
+        when /my profile page/
+          user_path(current_user)
 
-    when /the new user assignment page for "([^\"]*)"/
-      new_user_assignment_path(User.find_by_email($1))
+        when /the profile page for "([^\"]*)"/
+          user_path(User.find_by_email($1))
 
-    when /the new committee page/
-      new_committee_path
-      
-    when /the volunteers page/
-      users_path
-      
-    when /the committees page/
-      committees_path
+        when /the profile page for volunteer with first name "([^\"]*)"/
+          user_path(User.find_by_first_name($1))
 
+        when /the new user page/
+          new_user_path
+
+        when /the users page/
+          users_path
+
+        when /the new user assignment page for "([^\"]*)"/
+          new_user_assignment_path(User.find_by_email($1))
+
+        when /the new committee page/
+          new_committee_path
+
+        when /the volunteers page/
+          users_path
+
+        when /the committees page/
+          committees_path    
     # Add more mappings here.
     # Here is a more fancy example:
     #

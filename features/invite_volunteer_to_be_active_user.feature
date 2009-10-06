@@ -39,7 +39,7 @@ Feature: Authorized user invites inactive user (volunteer) to become active user
     And "becky@gmail.com" is inactive
     When I am on the profile page for "becky@gmail.com"
     Then I should not see "Send Email Invitation"
-
+@focus
   Scenario: Non-Admin board member invites an inactive user to become active
     Given I am logged in as "bob@example.com"
     And I have the role "board_member"

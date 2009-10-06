@@ -5,4 +5,4 @@ namespace :test do
   end 
 end
 
-task :integrity => ['test:move_db_config', 'db:migrate', 'db:test:clone', 'features', 'spec']
+task :integrity => ['test:move_db_config', 'db:migrate', 'db:test:clone', 'cucumber', 'spec']

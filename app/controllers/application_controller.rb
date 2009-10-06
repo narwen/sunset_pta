@@ -1,10 +1,14 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user_session, :current_user, :access_denied, :require_no_user, :show_positions?
+  helper_method :current_user_session, :current_user, :access_denied, :require_no_user, :show_positions?, :fetch_secret_password
   filter_parameter_logging :password, :password_confirmation
 
   rescue_from 'Acl9::AccessDenied', :with => :cannot_do_that
 
   private
+
+  def fetch_secret_password
+    "hellocharlie"
+  end
 
   def access_denied
     flash[:notice] = "You do not have permission to do that"
