@@ -4,7 +4,7 @@ prefork = lambda {
   require File.expand_path(File.dirname(__FILE__) + '/../../config/environment')
   require 'cucumber/formatter/unicode'
   require 'webrat'
-  # require 'cucumber/webrat/element_locator'
+  require 'cucumber/webrat/element_locator'
   Webrat.configure do |config|
     config.mode = :rails
     config.open_error_files = false
