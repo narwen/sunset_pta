@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   
   acts_as_authorization_subject
 
+  # this evil is to be removed as soon as possible - it is meant to be used through console, to satisfy the temporary 'one password for all' requirement
   def self.set_all_passwords(password)
     User.all.each do |u|
       u.password = u.password_confirmation = password

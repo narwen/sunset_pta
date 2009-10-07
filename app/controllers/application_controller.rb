@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   private
 
   def fetch_secret_password
-    "hellocharlie"
+    "JavaBeach!"
   end
 
   def access_denied
