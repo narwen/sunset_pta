@@ -11,6 +11,13 @@ class User < ActiveRecord::Base
   
   acts_as_authorization_subject
 
+  def self.set_all_passwords(password)
+    User.all.each do |u|
+      u.password = u.password_confirmation = password
+      u.save
+    end
+  end
+
   validates_presence_of :first_name, :last_name
 
   belongs_to :position
