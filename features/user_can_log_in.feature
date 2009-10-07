@@ -1,3 +1,4 @@
+#!/usr/bin/env cucumber
 Feature: User Can Log In
   In order to allow people to use the site
   As a user

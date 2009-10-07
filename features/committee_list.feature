@@ -1,3 +1,4 @@
+#!/usr/bin/env cucumber
 Feature: Only admins can add/delete committees
   In order to keep a record of committees
   As an administrator

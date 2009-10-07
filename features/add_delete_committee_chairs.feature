@@ -1,3 +1,4 @@
+#!/usr/bin/env cucumber
 Feature: Add/delete committee chairs
   In order to keep a record of committee chairs for committees and manage permissions for committee chairs
   As an administrator or board member

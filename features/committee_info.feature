@@ -1,3 +1,4 @@
+#!/usr/bin/env cucumber
 Feature: Everyone can view committee info
   In order to contact committee volunteers
   As a volunteer

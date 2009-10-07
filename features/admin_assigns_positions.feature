@@ -1,3 +1,4 @@
+#!/usr/bin/env cucumber
 Feature: Admin assigns executive board positions
   In order to track the board members
   As an admin

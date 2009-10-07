@@ -1,3 +1,4 @@
+#!/usr/bin/env cucumber
 Feature: Access control
   In order to use the application
   As a PTA member

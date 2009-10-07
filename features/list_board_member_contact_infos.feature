@@ -1,3 +1,4 @@
+#!/usr/bin/env cucumber
 Feature: List board members with contact info
   In order to have a page that displays board members and their contact info
   As an authenticated user

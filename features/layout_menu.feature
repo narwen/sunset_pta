@@ -1,3 +1,4 @@
+#!/usr/bin/env cucumber
 Feature: Layout menu
   In order to navigate in the application
   As a volunteer

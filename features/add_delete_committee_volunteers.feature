@@ -1,3 +1,4 @@
+#!/usr/bin/env cucumber
 Feature: Add/delete committee volunteers
   In order to keep a record of committee volunteers for committees
   As an administrator or board member

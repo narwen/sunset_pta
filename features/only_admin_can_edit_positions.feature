@@ -1,3 +1,4 @@
+#!/usr/bin/env cucumber
 Feature: Only admin can edit positions
   In order to keep a record of who is in which position
   As an administrator

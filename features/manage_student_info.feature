@@ -1,3 +1,4 @@
+#!/usr/bin/env cucumber
 Feature: Manage student info
   In order to track info about students
   As a PTA member

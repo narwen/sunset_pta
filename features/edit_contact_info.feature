@@ -1,3 +1,4 @@
+#!/usr/bin/env cucumber
 Feature: Edit contact info
   In order to share my contact info with other PTA members
   As a PTA member

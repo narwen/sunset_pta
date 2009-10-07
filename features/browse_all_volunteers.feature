@@ -1,3 +1,4 @@
+#!/usr/bin/env cucumber
 Feature: Browse all volunteers
   In order to find contact info for volunteers
   As a PTA member
