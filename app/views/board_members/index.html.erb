@@ -44,7 +44,7 @@
   <%- @chairs.each do |chair| -%>
   <tr>
     <td><%= link_to(chair.full_name, board_member_path(chair)) %></td>
-    <td><%= chair.committees.map(&:name).join(", ") %></td>
+    <td><%= chair.chaired_committees.map(&:name).join(", ") %></td>
     <td><%= chair.email %></td>
     <td><%= chair.cell_phone %></td>
     <td><%= chair.home_phone %></td>
