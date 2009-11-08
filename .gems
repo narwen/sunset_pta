@@ -1,6 +1,6 @@
 authlogic --version 2.1.1
 rack --version 1.0.0
-cucumber --version 0.3.104
+cucumber --version 0.4.3
 webrat --version 0.5.3
 rspec --version 1.2.8
 rspec-rails --version 1.2.7.1
