@@ -2,9 +2,9 @@
 Feature: List board members with contact info
   In order to have a page that displays board members and their contact info
   As an authenticated user
-  I want to list each board member with position, first_name, last_name email, home_phone, and cell_phone
-
-  Scenario: List the exec board members alongwith the contact info
+  I want to list each board member with position, first_name, last_name, email, home_phone and cell_phone
+@focus
+  Scenario: List the exec board members along with the contact info
     Given the following users exist:
       | first_name | last_name | email             | position_title | home_phone   | cell_phone   |
       | Bob        | Bobson    | bob@example.com   | President      | 111-222-3333 | 222-333-4444 |
