@@ -7,7 +7,6 @@ class Assignment < ActiveRecord::Base
 
 # we don't need both of these. one or the other covers it.
   validates_uniqueness_of :committee_id, :scope => 'user_id'
-  validates_uniqueness_of :user_id, :scope => 'committee_id'
 
   after_save :update_board_member_role
   after_destroy :update_board_member_role

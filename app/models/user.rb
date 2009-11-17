@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   acts_as_authentic do |config|
     config.ignore_blank_passwords = false
   end
-  
+
   acts_as_authorization_subject
 
   # this evil is to be removed as soon as possible - it is meant to be used through console, to satisfy the temporary 'one password for all' requirement
@@ -32,10 +32,8 @@ class User < ActiveRecord::Base
     before_save :update_board_member_role
   after_save :demote_others_from_my_position
 
-  before_destroy :delete_assignments
-
   def full_name
-    first_name + ' ' + last_name
+    "#{first_name} #{last_name}"
   end
 
   def activate!(password, password_confirmation)
@@ -81,10 +79,6 @@ class User < ActiveRecord::Base
       else
         has_no_role!(:board_member)
       end
-    end
-
-    def delete_assignments
-      self.assignments.clear
     end
 
 end
