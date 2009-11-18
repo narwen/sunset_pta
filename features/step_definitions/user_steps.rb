@@ -18,8 +18,10 @@ Given /^the following users exist:$/ do |table|
   table.hashes.each do |hash|
     hash = hash.dup
     if position_title = hash.delete('position_title')
-      position = Factory(:position, :title => position_title)
-      hash = hash.merge(:position_id => position.id)
+      if position_title.length > 0
+        position = Factory(:position, :title => position_title)
+        hash = hash.merge(:position_id => position.id)
+      end
     end
 
     if role_name = hash.delete('role_name')
@@ -33,10 +35,10 @@ end
 
 Given /^there is a user "([^\"]*)" with password "([^\"]*)"$/ do |email, password|
   Factory(:user,
-    :email => email,
-    :password => password,
-    :password_confirmation => password
-  )
+          :email => email,
+          :password => password,
+          :password_confirmation => password
+          )
 end
 
 Given /^there is no user "([^\"]*)" with password "([^\"]*)"$/ do |email, password|
@@ -44,11 +46,11 @@ Given /^there is no user "([^\"]*)" with password "([^\"]*)"$/ do |email, passwo
 end
 
 Given /^there is a user "([^\"]*)" with name "([^\"]*)"$/ do |email, fullname|
-    name = fullname.split(/\s+/)
-    Factory(:user,
-      :email => email,
-      :first_name => name[0],
-      :last_name => name[1])
+  name = fullname.split(/\s+/)
+  Factory(:user,
+          :email => email,
+          :first_name => name[0],
+          :last_name => name[1])
 end
 
 Given /^my name is "([^\"]*)"$/ do |fullname|
